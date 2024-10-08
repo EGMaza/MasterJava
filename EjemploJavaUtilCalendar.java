@@ -27,6 +27,7 @@ public class EjemploJavaUtilCalendar {
 		calendario2.set(Calendar.MILLISECOND, 110);
 		fecha = calendario2.getTime();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy' hr: 'hh:mm:ss:SSS a");
+		System.out.println("La muestra del calendario");
 		System.out.println("calendario = " + sdf.format(fecha));
 		
 	}
