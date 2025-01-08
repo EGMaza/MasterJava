@@ -1,4 +1,4 @@
-package ejercicios;
+package claseSystem;
 
 import java.util.Properties;
 public class EjemploPropiedadesDeSistema {
