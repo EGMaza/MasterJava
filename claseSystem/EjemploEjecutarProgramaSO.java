@@ -32,7 +32,7 @@ public class EjemploEjecutarProgramaSO {
 
     System.out.println("Se ha cerrado el editor");
     //Nota: la clase Runtime también se puede ocupar para ejecutar comandos de la consola de comandos        
-
+    //Comentario de prueba agregado desde otro usuario
 
 
     }
