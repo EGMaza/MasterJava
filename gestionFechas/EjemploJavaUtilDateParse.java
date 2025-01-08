@@ -10,6 +10,20 @@ public class EjemploJavaUtilDateParse {
 	public static void main(String[] args) {
 		SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
 		Scanner s = new Scanner(System.in);
+		int intentos;
+
+		if(args.length==0){
+			String [] best = {"1"};
+			args = best;
+			intentos = 1;
+		}
+		else{
+			intentos = Integer.parseInt(args[0]);
+			System.out.println("Quedan " + (3-intentos) + " intentos más");
+			intentos++;
+			
+		}
+		
 		try {
 			//Date fecha = formato.parse("2020-01-05");
 			System.out.println("Introduzca una fecha en formato dd-MM-yyyy");
@@ -41,10 +55,20 @@ public class EjemploJavaUtilDateParse {
 			
 		} catch (ParseException e) {
 			//e.printStackTrace();
-			System.out.println("Formato de fecha incorrecto");
-		}
+			System.err.println("Formato de fecha incorrecto: " + e.getMessage());
+			System.err.println("El formato debe ser: 'dd-MM-yyyy'");
+			if(intentos>=3){
+				System.err.println("Se agotaron los intentos disponibles, se finaliza el programa");
+				System.exit(1);
+			}
+			else{
+				args[0] = "" + Integer.toString(intentos);
+				main(args);
+			}
+		}	
 		s.close();
 		System.out.println("\nTermina la ejecución del programa");
+		System.exit(0);
 	}
 
 }
