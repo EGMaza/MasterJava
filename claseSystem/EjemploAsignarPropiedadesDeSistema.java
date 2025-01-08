@@ -18,7 +18,11 @@ public class EjemploAsignarPropiedadesDeSistema {
             System.out.println(System.getProperty("config.texto.ambiente"));
             System.out.println(System.getProperty("config.autor.email"));
         }catch(Exception e){
-            System.out.println("no existe el archivo = " + e);
+            System.err.println("no existe el archivo = " + e);//Se puede usar "System.err.println" si se sabe 
+            //que el mensaje a imprimir será un mensaje de error
+            System.exit(1);//Se puede usar "System.exit(0)" para finalizar la ejecución del programa en
+            //este punto. El código "(0)" sirve para indicar que el programa se finalizó correctamente, mientras
+            //que el código "(1)" se puede usar para indicar que el programa fue finalizado con un error
         }
         //Nota: las propiedades personalizadas solo viven mientras el programa está en ejecución
 
