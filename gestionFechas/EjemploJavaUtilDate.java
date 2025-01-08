@@ -1,4 +1,4 @@
-package ejercicios;
+package gestionFechas;
 
 import java.util.Date;
 import java.text.SimpleDateFormat;
