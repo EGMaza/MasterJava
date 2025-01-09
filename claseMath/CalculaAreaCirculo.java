@@ -16,5 +16,6 @@ public class CalculaAreaCirculo {
         catch(NumberFormatException e){
             System.out.println("Valor introducido no numerico o no valido");    
         }
+        s.close();
     }
 }
