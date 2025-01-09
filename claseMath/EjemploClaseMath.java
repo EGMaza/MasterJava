@@ -53,7 +53,6 @@ public class EjemploClaseMath {
 
         System.out.println("sin(90): " + Math.sin(radianes));//la función seno (sin) de Java recibe RADIANES
         //(no grados directamente) como parámetro
-
         System.out.println("cos(90): + " + Math.cos(radianes));
 
         radianes = Math.toRadians(180);
