@@ -53,4 +53,9 @@ public class EjemploArreglos {
         System.out.println("k = " + k);
         System.out.println("l = " + l);        
     }
+    //Nota de GIT: Para sincronizar nuestra rama actual con una rama específica del repositorio en GITHUB
+    // se usa el siguiente comando:
+    //git push --set-upstream <URLRepositorioRemoto> <NombreRamaRepositorioRemoto>
+    //Un ejemplo sería:
+    //git push --set-upstream https://github.com/EGMaza/EjerciciosCursoJav.git Arreglos
 }
