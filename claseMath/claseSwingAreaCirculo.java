@@ -2,7 +2,7 @@ package claseMath;
 
 import javax.swing.*;
 
-public class claseSwingAreaCirculo {  
+public class ClaseSwingAreaCirculo {  
     public static void main(String[] args) {
         
         try{
