@@ -17,6 +17,7 @@ public class EjemploArreglosNumMayor {
             max = (a[max] > a[i]?max:i);
         }
         System.out.println("num mayor del arreglo 'a' = " + a[max]);
+        s.close();
     }
 
 }
