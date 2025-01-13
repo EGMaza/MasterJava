@@ -30,6 +30,8 @@ public class EjemploArreglosForOrdenamientoBurbuja {
         }
     }
 
+    @SuppressWarnings({ "unchecked", "rawtypes" })//Esta linea sirve para ignorar los warnings que se puedan
+    //generar durante la ejecución del código
     public static void sortBurbuja(Object[] arreglo){
         int cont = 0;
         int max = arreglo.length;
