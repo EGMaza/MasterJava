@@ -111,6 +111,10 @@ class Automovil {
     }
 
     public Tanque getTanque(){
+        if(this.tanque==null){
+            this.tanque = new Tanque();
+        }
+
         return this.tanque;
     }
 
@@ -147,13 +151,18 @@ class Automovil {
     }
 
     public String verDetalle(){
-        return "\nId: " + this.id + 
+        String detalle = "\nId: " + this.id + 
         "\nFabricante: " + this.fabricante + 
-        "\nModelo: " + this.modelo + 
-        "\nTipo = " + this.getTipo().getDescripcion() +
-        "\nColor: " + this.color + 
+        "\nModelo: " + this.modelo;
+        
+        if(this.getTipo()!=null)
+            detalle+= "\nTipo = " + this.getTipo().getDescripcion();
+        
+        detalle+="\nColor: " + this.color + 
         "\nCilindrada: " + this.motor.getCilindrada() +
         "\npatenteColor: " +  colorPatente;
+
+        return detalle;
     }
 
     public String acelerar(int rpm){
@@ -171,11 +180,11 @@ class Automovil {
     }
 
     public float calcularConsumo(int km, float porcentajeGasolina){
-        return km/(tanque.getCapacidad()*porcentajeGasolina);
+        return km/(getTanque().getCapacidad()*porcentajeGasolina);
     }
 
     public float calcularConsumo(int km, int porcentajeGasolina){
-        return km/(tanque.getCapacidad()*(porcentajeGasolina/100f));
+        return km/(getTanque().getCapacidad()*(porcentajeGasolina/100f));
     }
 
     public static float calcularConsumoEstatico(int km, int porcentajeGasolina){
