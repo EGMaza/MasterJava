@@ -8,6 +8,7 @@ class Automovil {
     private double cilindrada;
     private int capacidadEstanque = 40;
     private int id;
+    private TipoAutomovil tipo;
 
     private static int capacidadEstanqueEstatico = 30;
     private static Color colorPatente = Color.NARANJA;
@@ -110,10 +111,22 @@ class Automovil {
         return id;
     }
 
+    public void setTipo(TipoAutomovil tipo) {
+        this.tipo = tipo;
+    }
+
+    public TipoAutomovil getTipo() {
+        return tipo;
+    }
+
     public String verDetalle(){
-        return "\nId: " + this.id + "\nFabricante: " + this.fabricante + "\nModelo: " +
-         this.modelo + "\nColor: " + this.color + "\nCilindrada: " + this.cilindrada +
-         "\npatenteColor: " +  colorPatente;
+        return "\nId: " + this.id + 
+        "\nFabricante: " + this.fabricante + 
+        "\nModelo: " + this.modelo + 
+        "\nTipo = " + this.getTipo().getDescripcion() +
+        "\nColor: " + this.color + 
+        "\nCilindrada: " + this.cilindrada +
+        "\npatenteColor: " +  colorPatente;
     }
 
     public String acelerar(int rpm){
