@@ -3,21 +3,29 @@ package ProgramacionOrientadaAObjetos;
 public class EjemploAutomovilStatic {
     public static void main(String[] args) {
 
-        Automovil.setCapacidadEstanqueEstatico(45);
+        Automovil.setCapacidadTanqueEstatico(45);
+
         Automovil subaru = new Automovil("Subaru","Impreza");
-        subaru.setCilindrada(2.0);
+        Motor motorSubaru = new Motor(2.0,TipoMotor.GASOLINA);
+        subaru.setMotor(motorSubaru);
+        subaru.setTanque(new Tanque());
         subaru.setColor(Color.BLANCO);
         subaru.setTipo(TipoAutomovil.HATCHBACK);
 
-        Automovil mazda = new Automovil("Mazda","BT-50",Color.ROJO,3);
+
+        Motor motorMazda = new Motor(3.0,TipoMotor.DIESEL);
+        Automovil mazda = new Automovil("Mazda","BT-50",Color.ROJO,motorMazda);
+        mazda.setTanque(new Tanque(45));
         mazda.setTipo(TipoAutomovil.PICKUP);
         System.out.println("mazda.fabricante = " + mazda.getFabricante());
 
-        Automovil nissan = new Automovil("Nissan","Navara",Color.GRIS_OSCURO,3.5,50);
+
+        Motor motorNissan = new Motor(4.0,TipoMotor.GASOLINA);
+        Automovil nissan = new Automovil("Nissan","Navara",Color.GRIS_OSCURO,motorNissan,new Tanque(48));
+        Automovil nissan2 = new Automovil("Nissan","Navara",Color.GRIS_OSCURO,motorNissan,new Tanque(48));
         nissan.setTipo(TipoAutomovil.PICKUP);
-        Automovil nissan2 = new Automovil("Nissan","Navara",Color.GRIS_OSCURO,3.5,50);
         nissan2.setTipo(TipoAutomovil.PICKUP);
-        //Automovil auto = new Automovil();
+        
         Automovil.setColorPatente(Color.NARANJA);
         
         System.out.println(subaru.verDetalle());

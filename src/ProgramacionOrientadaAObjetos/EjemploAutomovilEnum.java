@@ -3,13 +3,18 @@ package ProgramacionOrientadaAObjetos;
 public class EjemploAutomovilEnum {
     public static void main(String[] args) {
 
-        Automovil.setCapacidadEstanqueEstatico(45);
+        Automovil.setCapacidadTanqueEstatico(45);
+
         Automovil subaru = new Automovil("Subaru","Impreza");
-        subaru.setCilindrada(2.0);
+        Motor motorSubaru = new Motor(2.0,TipoMotor.GASOLINA);
+        subaru.setMotor(motorSubaru);
+        subaru.setTanque(new Tanque());
         subaru.setColor(Color.BLANCO);
         subaru.setTipo(TipoAutomovil.HATCHBACK);
 
-        Automovil mazda = new Automovil("Mazda","BT-50",Color.ROJO,3);
+        Motor motorMazda = new Motor(3.0,TipoMotor.DIESEL);
+        Automovil mazda = new Automovil("Mazda","BT-50",Color.ROJO,motorMazda);
+        mazda.setTanque(new Tanque(45));
         mazda.setTipo(TipoAutomovil.PICKUP);
         System.out.println("mazda.fabricante = " + mazda.getFabricante());
         //Automovil.setColorPatente(Color.NARANJA);

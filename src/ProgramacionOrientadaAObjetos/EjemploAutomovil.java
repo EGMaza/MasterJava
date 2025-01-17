@@ -6,15 +6,21 @@ public class EjemploAutomovil {
     @SuppressWarnings("unlikely-arg-type")
     public static void main(String[] args) {
         Automovil subaru = new Automovil("Subaru","Impreza");
-        subaru.setCilindrada(2.0);
+        Motor motorSubaru = new Motor(2.0,TipoMotor.GASOLINA);
+        subaru.setMotor(motorSubaru);
+        subaru.setTanque(new Tanque());
         subaru.setColor(Color.BLANCO);
 
-        Automovil mazda = new Automovil("Mazda","BT-50",Color.ROJO,3);
+        Motor motorMazda = new Motor(3.0,TipoMotor.DIESEL);
+        Automovil mazda = new Automovil("Mazda","BT-50",Color.ROJO,motorMazda);
+        mazda.setTanque(new Tanque(45));
+        
+        Motor motorNissan = new Motor(4.0,TipoMotor.GASOLINA);
+        Automovil nissan = new Automovil("Nissan","Navara",Color.GRIS_OSCURO,motorNissan,new Tanque(48));
+        Automovil nissan2 = new Automovil("Nissan","Navara",Color.GRIS_OSCURO,motorNissan,new Tanque(48));
+
         Automovil auto = new Automovil();
         Date fecha = new Date();        
-
-        Automovil nissan = new Automovil("Nissan","Navara",Color.GRIS_OSCURO,3.5,50);
-        Automovil nissan2 = new Automovil("Nissan","Navara",Color.GRIS_OSCURO,3.5,50);
         
         System.out.println(auto.equals(fecha));
         System.out.println(auto.equals(nissan2));
