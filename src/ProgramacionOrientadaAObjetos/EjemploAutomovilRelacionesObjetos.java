@@ -30,14 +30,15 @@ public class EjemploAutomovilRelacionesObjetos {
 
         //mazda.setRuedas(ruedasMazda);
 
-        Rueda[] ruedasNissan = new Rueda[5];
-        for(int i=0;i<ruedasNissan.length;i++){
-            ruedasNissan[i] = new Rueda("Pirelli",20,11.5);
-        }
-
         Motor motorNissan = new Motor(4.0,TipoMotor.GASOLINA);
         Persona conductorNissan1 = new Persona("Bea", "González");
-        Automovil nissan = new Automovil("Nissan","Navara",Color.GRIS_OSCURO,motorNissan,new Tanque(48),conductorNissan1,ruedasNissan);
+        Automovil nissan = new Automovil("Nissan","Navara",Color.GRIS_OSCURO,motorNissan,new Tanque(48));
+        nissan.setConductor(conductorNissan1);
+        nissan.addRueda(new Rueda("Pirelli",20,11.5))
+        .addRueda(new Rueda("Pirelli",20,11.5))
+        .addRueda(new Rueda("Pirelli",20,11.5))
+        .addRueda(new Rueda("Pirelli",20,11.5))
+        .addRueda(new Rueda("Pirelli",20,11.5));
         
         Rueda[] ruedasNissan2 = new Rueda[5];
         for(int i=0;i<ruedasNissan2.length;i++){

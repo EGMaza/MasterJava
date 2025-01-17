@@ -152,10 +152,11 @@ class Automovil {
         return ruedas;
     }
 
-    public void addRueda(Rueda rueda){
+    public Automovil addRueda(Rueda rueda){
         if(indiceRuedas<this.ruedas.length){
             this.ruedas[indiceRuedas++] = rueda;
         }
+        return this;
     }
 
     public String verDetalle(){
