@@ -1,6 +1,6 @@
 package ProgramacionOrientadaAObjetos;
 
-class Automovil {
+class Automovil implements Comparable<Automovil>{
 
     private String fabricante;
     private String modelo;
@@ -230,6 +230,13 @@ class Automovil {
     public String toString() {
         return this.fabricante + " " + this.modelo;
     }
+
+    @Override
+    public int compareTo(Automovil a) {
+        return this.getFabricante().compareTo(a.getFabricante());
+    }
+
+    
 
     
     
