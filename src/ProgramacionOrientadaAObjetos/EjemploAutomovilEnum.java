@@ -1,6 +1,7 @@
 package ProgramacionOrientadaAObjetos;
 
 public class EjemploAutomovilEnum {
+    @SuppressWarnings("incomplete-switch")
     public static void main(String[] args) {
 
         Automovil.setCapacidadTanqueEstatico(45);
