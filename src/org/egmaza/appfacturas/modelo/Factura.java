@@ -13,7 +13,7 @@ public class Factura {
     public static final int MAX_ITEMS = 12;
     private static int ultimoFolio;
 
-    public Factura(String descripción, Cliente cliente, ItemFactura[] items) {
+    public Factura(String descripción, Cliente cliente){
         this.descripción = descripción;
         this.cliente = cliente;
         this.items = new ItemFactura[MAX_ITEMS];
@@ -62,7 +62,6 @@ public class Factura {
                 total+=item.calcularImporte();
             }
         }
-
         return total;
     }
 
@@ -75,25 +74,17 @@ public class Factura {
             .append(cliente.getNif())
             .append("\nDescripcion: ")
             .append(this.descripción)
-            .append("\n")
-            .append("\n#\tNombre\t$Cant.\tTotal\n");
-
+            .append("\n");
+            
         SimpleDateFormat df = new SimpleDateFormat("dd ' de ' MMMM, yyyy");
         sb.append("\nFecha Emision: ")
             .append(df.format(this.fecha))
-            .append("\n");
+            .append("\n")
+            .append("\n#\tNombre\t$\tCant.\tTotal\n");
 
         for(ItemFactura item:this.items){
             if(item!=null){
-                sb.append(item.getProducto().getCodigo())
-                    .append("\t")
-                    .append(item.getProducto().getNombre())
-                    .append("\t")
-                    .append(item.getProducto().getPrecio())
-                    .append("\t")
-                    .append(item.getCantidad())
-                    .append("\t")
-                    .append(item.calcularImporte())
+                sb.append(item)
                     .append("\n");
             }
         }
@@ -101,5 +92,9 @@ public class Factura {
             .append(calcularTotal());
         
         return sb.toString();
+    }
+    @Override
+    public String toString() {
+        return generarDetalle();
     }
 }
