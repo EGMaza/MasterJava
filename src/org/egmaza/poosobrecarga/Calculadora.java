@@ -1,6 +1,16 @@
 package org.egmaza.poosobrecarga;
 
 public class Calculadora {
+
+    public int sumar(int... varargs){
+        int total = 0;
+        for(int i:varargs){
+            total+=i;
+        }
+
+        return total;
+    }
+
     public int sumar(int a, int b){
         return a + b;
     }
@@ -13,8 +23,12 @@ public class Calculadora {
         return i + j;
     }
 
-    public float sumar(float i, int j){
-        return i + j;
+    public float sumar(float i, int... varargs){
+        float suma = i;
+        for(int k:varargs){
+            suma+=k;
+        }
+        return suma;
     }
 
     public double sumar(double i, double j){
@@ -30,7 +44,6 @@ public class Calculadora {
         } catch (NumberFormatException e) {
             resultado =0;
         }
-
         return resultado;
     }
 

@@ -16,8 +16,6 @@ public class EjemploSobrecarga {
         System.out.println("Sumar 2 long: " + calc.sumar(10L, 5L));
         System.out.println("Sumar int y char: " +  calc.sumar(10, '@'));
         System.out.println("Sumar float-int: " + calc.sumar(10f, '@'));
-
-
+        System.out.println("Sumar x enteros: " + calc.sumar(2,3,4,5,6,7,8));
     }
-
 }
