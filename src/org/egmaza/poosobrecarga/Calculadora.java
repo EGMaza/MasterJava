@@ -2,7 +2,10 @@ package org.egmaza.poosobrecarga;
 
 public class Calculadora {
 
-    public int sumar(int... varargs){
+    private Calculadora(){
+    }
+
+    public static int sumar(int... varargs){
         int total = 0;
         for(int i:varargs){
             total+=i;
@@ -11,19 +14,19 @@ public class Calculadora {
         return total;
     }
 
-    public int sumar(int a, int b){
+    public static int sumar(int a, int b){
         return a + b;
     }
 
-    public float sumar(float a, float b){
+    public static float sumar(float a, float b){
         return a + b;
     }
 
-    public float sumar(int i, float j){
+    public static float sumar(int i, float j){
         return i + j;
     }
 
-    public float sumar(float i, int... varargs){
+    public static float sumar(float i, int... varargs){
         float suma = i;
         for(int k:varargs){
             suma+=k;
@@ -31,12 +34,12 @@ public class Calculadora {
         return suma;
     }
 
-    public double sumar(double i, double j){
+    public static double sumar(double i, double j){
 
         return i + j;
     }
 
-    public int sumar(String a, String b){
+    public static int sumar(String a, String b){
         int resultado;
         try {
             resultado = Integer.parseInt(a) + Integer.parseInt(b);
@@ -47,7 +50,7 @@ public class Calculadora {
         return resultado;
     }
 
-    public int sumar(int a, int b, int c){
+    public static int sumar(int a, int b, int c){
         return a + b + c;
     }
 }
