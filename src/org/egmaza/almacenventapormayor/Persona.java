@@ -1,7 +1,9 @@
 package org.egmaza.almacenventapormayor;
 
 public class Persona {
+    @SuppressWarnings("unused")
     private String nombre;
+    @SuppressWarnings("unused")
     private String direccion;
 
     public Persona(String nombre) {

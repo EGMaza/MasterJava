@@ -1,6 +1,7 @@
 package org.egmaza.almacenventapormayor;
 
 public class Cliente extends Persona{
+    @SuppressWarnings("unused")
     private int idCliente;
 
     private static int clientesIds;
