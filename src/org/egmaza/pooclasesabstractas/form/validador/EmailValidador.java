@@ -1,8 +1,8 @@
 package org.egmaza.pooclasesabstractas.form.validador;
 
-public class NoNuloValidador extends Validador{
-    protected String mensaje = "el campo no puede ser nulo";
-
+public class EmailValidador extends Validador{
+    protected String mensaje = "el formato del email es inválido";
+    private final static String EMAIL_REGEX = "^(.+)@(.+)$";
     @Override
     public String getMensaje() {
         return mensaje;
@@ -15,6 +15,6 @@ public class NoNuloValidador extends Validador{
 
     @Override
     public boolean esValido(String valor) {
-        return (valor != null);
+        return valor.matches(EMAIL_REGEX);
     }
 }
