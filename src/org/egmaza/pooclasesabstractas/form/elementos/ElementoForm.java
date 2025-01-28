@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.egmaza.pooclasesabstractas.form.validador.Validador;
+import org.egmaza.pooclasesabstractas.form.validador.mensaje.MensajeFormateable;
 
 abstract public class ElementoForm {
 
@@ -32,10 +33,6 @@ abstract public class ElementoForm {
         return errores;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
     public void setValor(String valor) {
         this.valor = valor;
     }
@@ -43,7 +40,13 @@ abstract public class ElementoForm {
     public boolean esValido(){
         for(Validador v:validadores){
             if(!v.esValido(this.valor)){
-                this.errores.add(v.getMensaje());
+                if(v instanceof MensajeFormateable){
+                    this.errores.add(((MensajeFormateable) v).getMensajeFormateado(nombre));
+
+                }
+                else{
+                    this.errores.add(String.format(v.getMensaje(), nombre));
+                }
             }
         }
         return this.errores.isEmpty();

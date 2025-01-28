@@ -59,11 +59,19 @@ public class EjemploForm {
 
         elementos.forEach(e -> {
             if(!e.esValido()){
+                e.getErrores().forEach(System.out::println);
+            }
+        });
+        //Lo anterior es lo mismo que lo que está comentado a continuación:
+        /*
+        elementos.forEach(e -> {
+            if(!e.esValido()){
                 e.getErrores().forEach(err -> {
                     System.out.println(e.getNombre() + ": " +err);
                 });
             }
         });
+        */
 
         ElementoForm saludar = new ElementoForm("saludo") {
 
