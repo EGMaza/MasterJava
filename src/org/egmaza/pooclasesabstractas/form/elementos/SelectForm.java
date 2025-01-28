@@ -19,8 +19,9 @@ public class SelectForm extends ElementoForm{
         this.opciones = opciones;
     }
 
-    public void addOpcion(Opcion opcion){
+    public SelectForm addOpcion(Opcion opcion){
         this.opciones.add(opcion);
+        return this;
     }
 
     @Override

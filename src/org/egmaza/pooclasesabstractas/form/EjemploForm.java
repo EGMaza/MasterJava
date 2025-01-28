@@ -5,24 +5,39 @@ import java.util.List;
 
 import org.egmaza.pooclasesabstractas.form.elementos.*;
 import org.egmaza.pooclasesabstractas.form.elementos.select.Opcion;
+import org.egmaza.pooclasesabstractas.form.validador.EmailValidador;
+import org.egmaza.pooclasesabstractas.form.validador.LargoValidador;
+import org.egmaza.pooclasesabstractas.form.validador.NoNuloValidador;
+import org.egmaza.pooclasesabstractas.form.validador.NumeroValidador;
+import org.egmaza.pooclasesabstractas.form.validador.RequeridoValidador;
 
 public class EjemploForm {
     public static void main(String[] args) {
 
         InputForm username = new InputForm("username");
-        InputForm password = new InputForm("clave", "password");
-        InputForm email = new InputForm("email", "email");
-        InputForm edad = new InputForm("edad", "number");
-        
-        TextAreaForm experiencia = new TextAreaForm("exp",5,9);
+        username.addValidador(new RequeridoValidador());
 
+        InputForm password = new InputForm("clave", "password");
+        password.addValidador(new RequeridoValidador())
+            .addValidador(new LargoValidador(6,12));
+
+        InputForm email = new InputForm("email", "email");
+        email.addValidador(new RequeridoValidador())
+            .addValidador(new EmailValidador());
+
+        InputForm edad = new InputForm("edad", "number");
+        edad.addValidador(new NumeroValidador());
+
+        TextAreaForm experiencia = new TextAreaForm("exp",5,9);
+        
         SelectForm lenguaje = new SelectForm("Lenguaje");
-        Opcion java = new Opcion("1","Java");
-        lenguaje.addOpcion(java);
-        lenguaje.addOpcion(new Opcion("2","Python").setSelected());
-        lenguaje.addOpcion(new Opcion("3","JavaScript"));
-        lenguaje.addOpcion(new Opcion("4","TypeScript"));
-        lenguaje.addOpcion(new Opcion("5","PHP"));
+        lenguaje.addValidador(new NoNuloValidador());
+
+        lenguaje.addOpcion(new Opcion("1","Java"))
+            .addOpcion(new Opcion("2","Python").setSelected())
+            .addOpcion(new Opcion("3","JavaScript"))
+            .addOpcion(new Opcion("4","TypeScript"))
+            .addOpcion(new Opcion("5","PHP"));
 
         username.setValor("john.doe");
         password.setValor("a1b2c3");
@@ -40,6 +55,14 @@ public class EjemploForm {
         elementos.forEach(e -> {
             System.out.println(e.dibujarHtml());
             System.out.println("<br>");
+        });
+
+        elementos.forEach(e -> {
+            if(!e.esValido()){
+                e.getErrores().forEach(err -> {
+                    System.out.println(e.getNombre() + ": " +err);
+                });
+            }
         });
 
         ElementoForm saludar = new ElementoForm("saludo") {

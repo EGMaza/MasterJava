@@ -32,6 +32,10 @@ abstract public class ElementoForm {
         return errores;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
     public void setValor(String valor) {
         this.valor = valor;
     }
