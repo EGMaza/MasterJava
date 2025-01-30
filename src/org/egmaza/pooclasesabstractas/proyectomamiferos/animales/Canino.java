@@ -38,4 +38,14 @@ public class Canino extends Mamifero{
     public String comunicarse() {
         return "El canino se comunica";
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder(super.toString())
+            .append("\nColor: ")
+            .append(color)
+            .append("\nTamaño de colmillos: ")
+            .append(tamanioColmillos);
+        return sb.toString();
+    }
 }

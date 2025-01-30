@@ -9,7 +9,7 @@ public class Guepardo extends Felino{
 
     @Override
     public String comer() {
-        return String.format("El Guepardo es carnívoro y come otros animales de su hábitad: ", habitad);
+        return String.format("El Guepardo es carnívoro y come otros animales de su hábitad: %s", habitad);
     }
 
     @Override
@@ -25,5 +25,11 @@ public class Guepardo extends Felino{
     @Override
     public String comunicarse() {
         return String.format("El Guepardo (%s) emite sonidos similares a los maullidos de los gatos comunes",nombreCientifico);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder(super.toString());
+        return sb.toString();
     }
 }

@@ -35,4 +35,18 @@ abstract public class Mamifero {
     abstract public String dormir();
     abstract public String correr();
     abstract public String comunicarse();
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("\nHábitad: ")
+            .append(habitad)
+            .append("\nAltura: ")
+            .append(altura)
+            .append("\nLargo ")
+            .append(largo)
+            .append("\nPeso: ")
+            .append(peso)
+            .append("\nNombre científico: ")
+            .append(nombreCientifico);
+        return sb.toString();
+    }    
 }

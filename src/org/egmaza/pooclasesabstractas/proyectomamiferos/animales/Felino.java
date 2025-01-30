@@ -38,4 +38,15 @@ public class Felino extends Mamifero{
     public String dormir() {
         return "El felino duerme";
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder(super.toString())
+            .append("\nTamaño de garras: ")
+            .append(tamanioGarras)
+            .append("\nVelocidad: ")
+            .append(velocidad);
+
+        return sb.toString();
+    }
 }

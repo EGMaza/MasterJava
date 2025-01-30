@@ -34,4 +34,12 @@ public class Perro extends Canino{
     public String comunicarse() {
         return String.format("El perro (%s) suele comunicarse ladrando", nombreCientifico);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder(super.toString())
+            .append("\nFuerza de mordida: ")
+            .append(fuerzaMordida);
+        return sb.toString();
+    }
 }

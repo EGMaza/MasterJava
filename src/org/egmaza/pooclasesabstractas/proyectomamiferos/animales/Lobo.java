@@ -41,4 +41,15 @@ public class Lobo extends Canino{
     public String comunicarse() {
         return String.format("El lobo se puede comunicar con aullidos para buscar pareja, con la que puede tener camadas de hasta %d integrantes",numCamada);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder(super.toString())
+            .append("\nNumero de camada: ")
+            .append(numCamada)
+            .append("\nEspecie: ")
+            .append(especieLobo);
+        return sb.toString();
+    }
+    
 }

@@ -36,4 +36,13 @@ public class Leon extends Felino{
     public String comunicarse() {
         return String.format("El león ruge alcanzando niveles de hasta %f decibeles ", potenciaRugidoDecibel);
     }
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder(super.toString())
+            .append("\nNúmero de manada: ")
+            .append(numManada)
+            .append("\nPotencia de rugido en decibeles: ")
+            .append(potenciaRugidoDecibel);
+        return sb.toString();
+    }
 }
