@@ -24,6 +24,13 @@ public class EjemploImprenta {
         imprimir(cv);
         imprimir(informe);
         imprimir(libro);
+
+        imprimir(new Imprimible() {
+            @Override
+            public String imprimir() {
+                return "un textos";
+            }
+        });
     }
 
     public static void imprimir(Imprimible imprimible){
