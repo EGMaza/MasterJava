@@ -1,6 +1,6 @@
 package org.egmaza.poointerfaces.imprenta.modelo;
 
-abstract public class Hoja {
+abstract public class Hoja{
     protected String contenido;
 
     public Hoja(String contenido) {

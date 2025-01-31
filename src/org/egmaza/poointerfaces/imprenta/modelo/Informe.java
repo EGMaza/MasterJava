@@ -1,10 +1,10 @@
 package org.egmaza.poointerfaces.imprenta.modelo;
 
-public class Informe extends Hoja{
-    private String autor;
-    private String revisor;
+public class Informe extends Hoja implements Imprimible{
+    private Persona autor;
+    private Persona revisor;
 
-    public Informe(String contenido, String autor, String revisor) {
+    public Informe(String contenido, Persona autor, Persona revisor) {
         super(contenido);
         this.autor = autor;
         this.revisor = revisor;
@@ -12,8 +12,11 @@ public class Informe extends Hoja{
     
         @Override
     public String imprimir() {
-        return "Informe escrito por: " + autor +
-        "\nRevisado por: " + revisor + 
-        "\n" + contenido;
+
+        StringBuilder sb = new StringBuilder("Informe escrito por: ")
+            .append(autor).append("\n")
+            .append("Revisado por: ").append(revisor).append("\n")
+            .append(contenido);
+        return sb.toString();
     }
 }
