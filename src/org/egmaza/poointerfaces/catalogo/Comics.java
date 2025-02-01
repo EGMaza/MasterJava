@@ -23,7 +23,7 @@ public class Comics extends Libro{
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder(super.toString())
-            .append("Personaje: ")
+            .append("\nPersonaje: ")
             .append(personaje);
         return sb.toString();
     }    

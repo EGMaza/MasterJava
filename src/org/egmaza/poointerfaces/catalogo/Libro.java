@@ -1,5 +1,6 @@
 package org.egmaza.poointerfaces.catalogo;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Libro extends Producto implements ILibro{
@@ -44,8 +45,11 @@ public class Libro extends Producto implements ILibro{
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder(super.toString())
-            .append("\nFecha de publicacion: ")
-            .append(fechaPublicacion)
+            .append("\nFecha de publicacion: ");
+
+        SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
+
+        sb.append(f.format(fechaPublicacion))
             .append("\nAutor: ")
             .append(autor)
             .append("\nTitulo: ")
