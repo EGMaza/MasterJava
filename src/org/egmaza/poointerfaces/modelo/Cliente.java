@@ -1,5 +1,7 @@
 package org.egmaza.poointerfaces.modelo;
 
+import java.util.Objects;
+
 public class Cliente {
     private Integer id;
     private String nombre;
@@ -46,5 +48,23 @@ public class Cliente {
         return "id = " + id +
          ", nombre = " + nombre + 
          ", apellido = " + apellido;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        Cliente other = (Cliente) obj;
+        return Objects.equals(id, other.id);
     }
 }
