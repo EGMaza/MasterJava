@@ -20,7 +20,7 @@ public class EjemploRepositorio {
         List<Cliente> clientes = repo.listar();
 
         clientes.forEach(c -> System.out.println(c));
-        //También es válido: 
+        //También se considera válido: 
         //clientes.forEach(System.out::println);
         System.out.println("======= paginable =======");
         List<Cliente> paginable = ((PaginableRepositorio)repo).listar(1, 3);
