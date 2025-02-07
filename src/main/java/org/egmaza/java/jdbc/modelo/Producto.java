@@ -1,6 +1,6 @@
 package org.egmaza.java.jdbc.modelo;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Producto {
     private Long id;
@@ -57,6 +57,4 @@ public class Producto {
         " | " + precio +
         " | " + fechaRegistro;
     }
-
-    
 }

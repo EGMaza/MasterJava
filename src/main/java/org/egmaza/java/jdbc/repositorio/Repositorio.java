@@ -8,7 +8,7 @@ public interface Repositorio<T> {
     
     T porId(Long id);
     
-    void guardar(T t);
+    boolean guardar(T t);
     
     void eliminar(Long id);
     

@@ -10,7 +10,7 @@ public class ConexionBaseDatos {
     private static String password = "alguien64";
     private static Connection connection;
 
-    public static Connection getInstance() throws SQLException{
+    public static Connection getInstancia() throws SQLException{
         if(connection == null){
             connection = DriverManager.getConnection(url, username, password);
         }
