@@ -1,5 +1,6 @@
 package org.egmaza.java.jdbc;
 
+import org.egmaza.java.jdbc.modelo.Categoria;
 import org.egmaza.java.jdbc.modelo.Producto;
 import org.egmaza.java.jdbc.repositorio.ProductoRepositorioImpl;
 import org.egmaza.java.jdbc.repositorio.Repositorio;
@@ -22,12 +23,18 @@ public class EjemploJdbc {
 
             System.out.println("============== Insertar/Actualizar producto");
             Producto producto = new Producto();
-            producto.setNombre("Teclado Razer mecánico");
-            producto.setPrecio(500);
+            producto.setNombre("Teclado Corsair K95 mecánico");
+            producto.setPrecio(700);
+
+            Categoria categoria = new Categoria();
+            categoria.setId(2L);
+            producto.setCategoria(categoria);
+
+
             //ATENCIÓN: Descomentar la siguiente línea SOLO para INSERT
-            producto.setFechaRegistro(new Date());
-            //Comentar o descomentar la siguiente línea hace que sea un insert o un uptade respectivamente:
-            //producto.setId(7L);
+            //producto.setFechaRegistro(new Date());
+            //ATENCIÓN: Descomentar la siguiente línea SOLO para UPDATE:
+            producto.setId(11L);
 
             if(repositorio.guardar(producto)){
                 System.out.println("Operacion realizada con éxito");
@@ -37,7 +44,7 @@ public class EjemploJdbc {
             }
 
             //Descomentar la siguiente línea para eliminar un producto con el id proporcionado como parámetro
-            //repositorio.eliminar(7L);
+            //repositorio.eliminar(10L);
             System.out.println("=======POST ACTUALIZACIÓN=======");
             repositorio.listar().forEach(System.out::println);
             
