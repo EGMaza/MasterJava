@@ -7,7 +7,6 @@ import org.egmaza.java.jdbc.repositorio.Repositorio;
 import org.egmaza.java.jdbc.util.ConexionBaseDatos;
 
 import java.sql.Connection;
-import java.util.Date;
 import java.sql.SQLException;
 
 public class EjemploJdbc {
