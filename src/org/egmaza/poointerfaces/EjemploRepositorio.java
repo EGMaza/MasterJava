@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.egmaza.poointerfaces.modelo.Cliente;
 import org.egmaza.poointerfaces.repositorio.*;
+import org.egmaza.poointerfaces.repositorio.lista.ClienteListRepositorio;
 
 public class EjemploRepositorio {
     public static void main(String[] args) {

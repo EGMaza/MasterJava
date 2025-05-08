@@ -1,11 +1,13 @@
-package org.egmaza.poointerfaces.repositorio;
+package org.egmaza.poointerfaces.repositorio.lista;
 
 import org.egmaza.poointerfaces.modelo.Cliente;
+import org.egmaza.poointerfaces.repositorio.AbstractaListRepositorio;
+import org.egmaza.poointerfaces.repositorio.Direccion;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClienteListRepositorio extends AbstractaListRepositorio<Cliente>{
+public class ClienteListRepositorio extends AbstractaListRepositorio<Cliente> {
 
     @Override
     public void editar(Cliente cliente) {
