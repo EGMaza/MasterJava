@@ -1,50 +1,53 @@
 package org.egmaza.poointerfaces.repositorio;
 
-import org.egmaza.poointerfaces.modelo.Cliente;
+import org.egmaza.poointerfaces.modelo.BaseEntity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClienteListRepositorio extends AbstractaListRepositorio<Cliente>{
+public abstract class AbstractaListRepositorio<T extends BaseEntity> implements OrdenablePaginableCrudRepositorio<T>{
 
-    @Override
-    public void editar(Cliente cliente) {
-        Cliente c = (this.porId(cliente.getId()));
-        c.setNombre(cliente.getNombre());
-        c.setApellido(cliente.getApellido());
+    protected List<T> dataSource;
+
+    public AbstractaListRepositorio() {
+        this.dataSource = new ArrayList<>();
     }
 
     @Override
-    public List<Cliente> listar(String campo, Direccion dir) {
-        List<Cliente> listaOrdenada = new ArrayList<>(this.dataSource);
-      
-        listaOrdenada.sort((a, b) -> {
-            int resultado = 0;
-            if(dir == Direccion.ASC){
-                resultado = ordenar(campo, a, b);
-            }
-            else if(dir == Direccion.DESC){
-                resultado = ordenar(campo, b, a);
-            }
-            return resultado;
-        });
-        return listaOrdenada;
+    public List<T> listar() {
+        return dataSource;
     }
 
-    public static int ordenar(String campo, Cliente a, Cliente b){
-        int resultado = 0;
-        switch (campo) {
-            case "id":
-                resultado =a.getId().compareTo(b.getId());
-            break;
-            case "nombre":
-                resultado =a.getNombre().compareTo(b.getNombre());
-            break;
-            case "apellido":
-                resultado =a.getApellido().compareTo(b.getApellido());
-            break;
+    @Override
+    public T porId(Integer id) {
+        T resultado = null;
+        for(T cli:dataSource){
+            if(cli.getId()!=null && cli.getId().equals(id)){
+                resultado = cli;
+                break;
+            }
         }
         return resultado;
+    }
+
+    @Override
+    public void crear(T t) {
+        this.dataSource.add(t);
+    }
+
+    @Override
+    public void eliminar(Integer id) {
+        this.dataSource.remove(this.porId(id));
+    }
+
+    @Override
+    public List<T> listar(int desde, int hasta) {
+        return dataSource.subList(desde, hasta);
+    }
+
+    @Override
+    public int total() {
+        return this.dataSource.size();
     }
 }
 

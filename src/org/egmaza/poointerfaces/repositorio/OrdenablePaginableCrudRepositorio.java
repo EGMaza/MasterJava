@@ -1,5 +1,5 @@
 package org.egmaza.poointerfaces.repositorio;
 
-public interface OrdenablePaginableCrudRepositorio extends OrdenableRepositorio, PaginableRepositorio, ContableRepositorio, CrudRepositorio{
+public interface OrdenablePaginableCrudRepositorio<T> extends OrdenableRepositorio<T>, PaginableRepositorio<T>, ContableRepositorio, CrudRepositorio<T>{
 
 }

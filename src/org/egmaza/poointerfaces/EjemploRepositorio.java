@@ -3,14 +3,11 @@ package org.egmaza.poointerfaces;
 import java.util.List;
 
 import org.egmaza.poointerfaces.modelo.Cliente;
-import org.egmaza.poointerfaces.repositorio.ClienteListRepositorio;
-import org.egmaza.poointerfaces.repositorio.Direccion;
-import org.egmaza.poointerfaces.repositorio.OrdenablePaginableCrudRepositorio;
-import org.egmaza.poointerfaces.repositorio.OrdenableRepositorio;
+import org.egmaza.poointerfaces.repositorio.*;
 
 public class EjemploRepositorio {
     public static void main(String[] args) {
-        OrdenablePaginableCrudRepositorio repo = new ClienteListRepositorio();
+        OrdenablePaginableCrudRepositorio<Cliente> repo = new ClienteListRepositorio();
         repo.crear(new Cliente("Jano", "Perez"));
         repo.crear(new Cliente("Bea", "González"));
         repo.crear(new Cliente("Luci", "Martinez"));
