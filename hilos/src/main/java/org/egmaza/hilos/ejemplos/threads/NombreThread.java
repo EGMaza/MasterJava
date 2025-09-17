@@ -10,6 +10,11 @@ public class NombreThread extends Thread {
     public void run() {
         System.out.println("Se inicia el métodos Run del hilo " +  this.getName());
         for (int i=0; i<10; i++) {
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
             System.out.println(this.getName()+" "+i);
         }
         System.out.println("Finaliza el hilo");
