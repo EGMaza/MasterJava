@@ -15,8 +15,8 @@ public class EjemploStreamFilterSingle2 {
                 .map(nombre -> {
                     return new Usuario(nombre.split(" ")[0], nombre.split(" ")[1]);
                 })
-                .filter(u -> u.getId().equals(5))
-                .findFirst().get();
+                .filter(u -> u.getId().equals(2))
+                .findFirst().orElseGet(() -> new Usuario("Jonh", "Doe"));
 
         System.out.println(usuario);
     }
