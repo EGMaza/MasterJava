@@ -14,13 +14,18 @@ public class EjemploStreamFilterSingle {
         Stream<Usuario> nombres = Stream.of("Pato Guzmán",
                         "Paco González", "Pepa Gutierrez", "Pepe Mena",
                 "Pepe García")
-                .map(nombre -> {
-                    return new Usuario(nombre.split(" ")[0], nombre.split(" ")[1]);
-                })
-                .filter(u -> u.getNombre().equals("Pepe"))
+                .map(nombre -> new Usuario(nombre.split(" ")[0], nombre.split(" ")[1]))
+                .filter(u -> u.getNombre().equals("Pepex"))
                 .peek(System.out::println);
         Optional<Usuario> usu = nombres.findFirst();
 
-        System.out.println(usu.get());
+        //System.out.println(usu.orElse(new Usuario("Jonh","Doe")));
+        //System.out.println(usu.orElseGet(() -> new Usuario("Jonh","Doe")).getNombre());
+        if(usu.isPresent()){
+            System.out.println(usu.orElseThrow());
+        }
+        else{
+            System.out.println("No se encontro el objeto!");
+        }
     }
 }
