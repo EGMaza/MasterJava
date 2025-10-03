@@ -16,18 +16,11 @@ public class EjemploStreamFilter {
                 .map(nombre -> {
                     return new Usuario(nombre.split(" ")[0], nombre.split(" ")[1]);
                 })
-                .flatMap(u -> {
-                    if(u.getNombre().equalsIgnoreCase("Pepe")){
-                        return Stream.of(u);
-                    }
-                    return Stream.empty();
-                })
+                .filter(u -> u.getNombre().equals("Pepe"))
                 .peek(System.out::println);
-
-        //List<Usuario> lista = nombres.collect(Collectors.toList());
+        List<Usuario> lista = nombres.collect(Collectors.toList());
         //lista.forEach(Usuario -> System.out.println(Usuario.getApellido()));
-        //lista.forEach(System.out::println);
-        // nombres.forEach(System.out::println);
-        System.out.println(nombres.count());
+        lista.forEach(System.out::println);
+        //nombres.forEach(System.out::println);
     }
 }
