@@ -1,5 +1,7 @@
 package org.egmaza.api.stream.ejemplos.models;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Usuario {
@@ -8,11 +10,21 @@ public class Usuario {
     private String apellido;
     private Integer id;
     private static int ultimoId;
+    private List<Factura> facturas;
 
     public Usuario(String nombre, String apellido) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.id = ++ultimoId;
+        this.facturas = new ArrayList<>();
+    }
+
+    public List<Factura> getFacturas() {
+        return facturas;
+    }
+
+    public void addFactura(Factura factura) {
+        this.facturas.add(factura);
     }
 
     public Integer getId() {
