@@ -25,6 +25,7 @@ public class Usuario {
 
     public void addFactura(Factura factura) {
         this.facturas.add(factura);
+        factura.setUsuario(this);
     }
 
     public Integer getId() {
