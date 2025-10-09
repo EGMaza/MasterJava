@@ -1,6 +1,8 @@
 package org.egmaza.optional.ejemplo.repositorio;
 
 import org.egmaza.optional.ejemplo.models.Computadora;
+import org.egmaza.optional.ejemplo.models.Fabricante;
+import org.egmaza.optional.ejemplo.models.Procesador;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +13,11 @@ public class ComputadoraRepositorio implements Repositorio<Computadora>{
     private List<Computadora> dataSource = new ArrayList<>();
     public ComputadoraRepositorio() {
         dataSource = new ArrayList<>();
-        dataSource.add(new Computadora("Asus ROG", "Strix G512"));
+        Procesador proc = new Procesador("I9-9880H", new Fabricante("Intel"));
+        //Procesador proc = new Procesador("Ryzen 9", new Fabricante("AMD"));
+        Computadora asus = new Computadora("Asus ROG", "Strix G512", proc);
+
+        dataSource.add(asus);
         dataSource.add(new Computadora("MacBook Pro", "MVVK2CI"));
     }
 
