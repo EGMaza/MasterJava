@@ -1,4 +1,4 @@
-package org.egmaza.datetime.tareas;
+package org.egmaza.datetime.tareas.tarea1;
 
 import java.time.LocalDate;
 import java.time.Period;
