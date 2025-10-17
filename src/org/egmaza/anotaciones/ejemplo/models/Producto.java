@@ -1,12 +1,16 @@
 package org.egmaza.anotaciones.ejemplo.models;
 
+import org.egmaza.anotaciones.ejemplo.Init;
 import org.egmaza.anotaciones.ejemplo.JsonAtributo;
 
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class Producto {
     //@JsonAtributo(nombre = "descripción")
-    @JsonAtributo(capitalizar = true)
+    //@JsonAtributo(capitalizar = true)
+    @JsonAtributo
     private String nombre;
 
 
@@ -15,6 +19,16 @@ public class Producto {
     private Long precio;
 
     private LocalDate fecha;
+
+    @Init
+    private void init(){
+        this.nombre = Arrays.stream(nombre.split(" "))
+                .map(palabra -> palabra
+                        .substring(0,1).toUpperCase() +
+                        palabra.substring(1).toLowerCase())
+                .collect(Collectors.joining(" "));
+
+    }
 
     public String getNombre() {
         return nombre;
