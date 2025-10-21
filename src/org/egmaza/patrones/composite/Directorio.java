@@ -22,6 +22,22 @@ public class Directorio extends Componente{
     }
 
     @Override
+    public boolean buscar(String nombre) {
+        if(this.nombre.equalsIgnoreCase(nombre)){
+            return true;
+        }
+        /*for(Componente hijo:this.hijos){
+            if (hijo.buscar(nombre)){
+                return true;
+            }
+        }
+        return false;
+        */
+
+        return hijos.stream().anyMatch(h -> h.buscar(nombre));
+    }
+
+    @Override
     public String mostrar(int nivel) {
 
         StringBuilder sb = new StringBuilder("\t".repeat(nivel));
