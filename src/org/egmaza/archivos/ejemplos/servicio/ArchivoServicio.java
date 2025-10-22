@@ -1,6 +1,7 @@
 package org.egmaza.archivos.ejemplos.servicio;
 
 import java.io.*;
+import java.util.Scanner;
 
 public class ArchivoServicio {
 
@@ -32,5 +33,35 @@ public class ArchivoServicio {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public String leerArchivo(String nombre){
+        StringBuilder sb = new StringBuilder();
+        File archivo = new File(nombre);
+        try (BufferedReader reader = new BufferedReader(new FileReader(archivo))){
+
+            String linea;
+            while ((linea = reader.readLine())!=null){
+                sb.append(linea).append("\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return sb.toString();
+    }
+
+    public String leerArchivo2(String nombre){
+        StringBuilder sb = new StringBuilder();
+        File archivo = new File(nombre);
+        try (Scanner s = new Scanner(archivo)){
+
+            s.useDelimiter("\n");
+            while (s.hasNext()){
+                sb.append(s.next()).append("\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return sb.toString();
     }
 }
