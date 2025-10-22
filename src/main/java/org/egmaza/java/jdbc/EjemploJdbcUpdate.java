@@ -5,10 +5,11 @@ import org.egmaza.java.jdbc.repositorio.ProductoRepositorioImpl;
 import org.egmaza.java.jdbc.repositorio.Repositorio;
 import org.egmaza.java.jdbc.util.ConexionBaseDatos;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Date;
 
-public class EjemploJdbc {
+public class EjemploJdbcUpdate {
 
     public static void main(String[] args) {
 
@@ -20,13 +21,13 @@ public class EjemploJdbc {
             System.out.println("================ Obtener por ID =============");
             System.out.println(repositorio.porId(1l));
 
-            System.out.println("================ Insertar nuevo producto =============");
+            System.out.println("================ Editar producto =============");
             Producto producto = new Producto();
-            producto.setNombre("Teclado mecánico");
-            producto.setPrecio(500);
-            producto.setFechaRegistro(new Date());
+            producto.setId(3L);
+            producto.setNombre("Teclado Razer Metálico");
+            producto.setPrecio(700);
             repositorio.guardar(producto);
-            System.out.println("Producto guardado con éxito");
+            System.out.println("Producto editado con éxito");
             repositorio.listar().forEach(System.out::println);
 
 

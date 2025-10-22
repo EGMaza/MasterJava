@@ -5,10 +5,10 @@ import org.egmaza.java.jdbc.repositorio.ProductoRepositorioImpl;
 import org.egmaza.java.jdbc.repositorio.Repositorio;
 import org.egmaza.java.jdbc.util.ConexionBaseDatos;
 
-import java.sql.*;
-import java.util.Date;
+import java.sql.Connection;
+import java.sql.SQLException;
 
-public class EjemploJdbc {
+public class EjemploJdbcDelete {
 
     public static void main(String[] args) {
 
@@ -20,15 +20,10 @@ public class EjemploJdbc {
             System.out.println("================ Obtener por ID =============");
             System.out.println(repositorio.porId(1l));
 
-            System.out.println("================ Insertar nuevo producto =============");
-            Producto producto = new Producto();
-            producto.setNombre("Teclado mecánico");
-            producto.setPrecio(500);
-            producto.setFechaRegistro(new Date());
-            repositorio.guardar(producto);
-            System.out.println("Producto guardado con éxito");
+            System.out.println("================ Editar producto =============");
+            repositorio.eliminar(3L);
+            System.out.println("Producto eliminado con éxito");
             repositorio.listar().forEach(System.out::println);
-
 
         } catch (SQLException e) {
             e.printStackTrace();
