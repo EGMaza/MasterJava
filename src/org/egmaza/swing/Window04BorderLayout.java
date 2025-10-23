@@ -1,0 +1,52 @@
+package org.egmaza.swing;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Window04BorderLayout extends JFrame implements ActionListener {
+
+    public Window04BorderLayout() {
+        super("Ejemplo de Botón y eventos");
+
+        JPanel panel = new JPanel(new BorderLayout(8, 4));
+
+        JButton button = new JButton("Aceptar ");
+        button.addActionListener(e -> System.out.println("Botón pulsado"));
+        button.addActionListener(this);
+        button.addActionListener(new ButtonClicListener());
+        button.setSize(200, 100);
+        //button.setPreferredSize(new Dimension(200,100));
+        panel.add(button, BorderLayout.CENTER);
+        panel.add(new JButton("North"), BorderLayout.NORTH);
+        panel.add(new JButton("South"), BorderLayout.SOUTH);
+        panel.add(new JButton("West"), BorderLayout.WEST);
+        panel.add(new JButton("East"), BorderLayout.EAST);
+
+        setContentPane(panel);
+        setSize(600, 200);
+        setVisible(true);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        System.out.println("Botón pulsado2");
+    }
+
+    public static void main(String[] args) {
+        new Window04BorderLayout();
+
+
+    }
+
+    private static class ButtonClicListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println("Botón pulsado3");
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }
+}
