@@ -9,11 +9,21 @@ import java.util.List;
 
 public class ProductoRepositorioImpl implements Repositorio<Producto>{
 
+    private Connection conn;
+
     public ProductoRepositorioImpl(Connection conn) {
         this.conn = conn;
     }
 
-    private Connection conn;
+    public ProductoRepositorioImpl() { }
+
+    public Connection getConn() {
+        return conn;
+    }
+
+    public void setConn(Connection conn) {
+        this.conn = conn;
+    }
 
     @Override
     public List<Producto> listar() throws SQLException {

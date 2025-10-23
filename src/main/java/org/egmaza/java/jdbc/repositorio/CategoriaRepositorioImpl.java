@@ -14,6 +14,16 @@ public class CategoriaRepositorioImpl implements Repositorio<Categoria> {
         this.conn = conn;
     }
 
+    public CategoriaRepositorioImpl() { }
+
+    public Connection getConn() {
+        return conn;
+    }
+
+    public void setConn(Connection conn) {
+        this.conn = conn;
+    }
+
     @Override
     public List<Categoria> listar() throws SQLException {
         List<Categoria> categorias = new ArrayList<>();

@@ -2,10 +2,8 @@ package org.egmaza.java.jdbc;
 
 import org.egmaza.java.jdbc.modelo.Categoria;
 import org.egmaza.java.jdbc.modelo.Producto;
-import org.egmaza.java.jdbc.repositorio.CategoriaRepositorioImpl;
-import org.egmaza.java.jdbc.repositorio.ProductoRepositorioImpl;
-import org.egmaza.java.jdbc.repositorio.Repositorio;
-import org.egmaza.java.jdbc.util.ConexionBaseDatos;
+import org.egmaza.java.jdbc.servicio.CatalogoServicio;
+import org.egmaza.java.jdbc.servicio.Servicio;
 
 import java.sql.*;
 import java.util.Date;
@@ -14,44 +12,19 @@ public class EjemploJdbc {
 
     public static void main(String[] args) throws SQLException {
 
+        Servicio servicio = new CatalogoServicio();
+        System.out.println("================ Listar =============");
+        servicio.listar().forEach(System.out::println);
+        Categoria categoria = new Categoria();
+        categoria.setNombre("Iluminacion");
 
-        try(Connection conn = ConexionBaseDatos.getConnection()){
-
-            if(conn.getAutoCommit()){
-                conn.setAutoCommit(false);
-            }
-
-            try {
-                Repositorio<Categoria> repositorioCategoria = new CategoriaRepositorioImpl(conn);
-                System.out.println("=============== Insertar nueva categoría ===============");
-                Categoria categoria = new Categoria();
-                categoria.setNombre("Línea Blanca");
-                Categoria nuevaCategoria = repositorioCategoria.guardar(categoria);
-                System.out.println("Categoría guardada con éxito: " + nuevaCategoria.getId());
-
-                Repositorio<Producto> repositorio = new ProductoRepositorioImpl(conn);
-                System.out.println("================ Listar =============");
-                repositorio.listar().forEach(System.out::println);
-
-                System.out.println("================ Obtener por ID =============");
-                System.out.println(repositorio.porId(1L));
-
-                System.out.println("================ Insertar nuevo producto =============");
-                Producto producto = new Producto();
-                producto.setNombre("Refrigerador LG 12ft");
-                producto.setPrecio(9800);
-                producto.setFechaRegistro(new Date());
-                producto.setSku("abcde00004");
-
-                producto.setCategoria(nuevaCategoria);
-                repositorio.guardar(producto);
-                System.out.println("Producto guardado con éxito: " + producto.getId());
-                repositorio.listar().forEach(System.out::println);
-                conn.commit();
-            } catch (SQLException e) {
-                e.printStackTrace();
-                conn.rollback();
-            }
-        }
+        Producto producto = new Producto();
+        producto.setNombre("Lampara Halógena de pared");
+        producto.setPrecio(450);
+        producto.setFechaRegistro(new Date());
+        producto.setSku("abcde00006");
+        servicio.guardarProductoConCategoria(producto, categoria);
+        System.out.println("Producto guardado con éxito: " + producto.getId());
+        servicio.listar().forEach(System.out::println);
     }
 }
