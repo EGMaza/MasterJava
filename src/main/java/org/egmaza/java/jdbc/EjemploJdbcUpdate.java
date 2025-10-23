@@ -14,7 +14,6 @@ public class EjemploJdbcUpdate {
 
     public static void main(String[] args) {
 
-        try (Connection conn = ConexionBaseDatos.getInstance()){
             Repositorio<Producto> repositorio = new ProductoRepositorioImpl();
             System.out.println("================ Listar =============");
             repositorio.listar().forEach(System.out::println);
@@ -33,10 +32,5 @@ public class EjemploJdbcUpdate {
             repositorio.guardar(producto);
             System.out.println("Producto editado con éxito");
             repositorio.listar().forEach(System.out::println);
-
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 }
