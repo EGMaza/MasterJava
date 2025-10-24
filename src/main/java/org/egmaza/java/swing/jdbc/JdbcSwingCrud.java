@@ -3,8 +3,8 @@ package org.egmaza.java.swing.jdbc;
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +16,8 @@ public class JdbcSwingCrud extends JFrame {
     private JTextField quantityField = new JTextField();
     private ProductTableModel tableModel = new ProductTableModel();
 
+    private long id;
+    private int row;
 
     public JdbcSwingCrud() throws HeadlessException {
         super("Swing: GUI con Base de Datos MySQL");
@@ -38,16 +40,88 @@ public class JdbcSwingCrud extends JFrame {
 
         formPanel.add(new JLabel(""));
         formPanel.add(buttonSave);
-        buttonSave.addActionListener(new AddActionListener());
+        buttonSave.addActionListener(event ->{
+            String name = nameField.getText();
+
+            int price = 0;
+            try {
+                price = Integer.parseInt(priceField.getText());
+            } catch (NumberFormatException e) { }
+
+            int quantity = 0;
+            try {
+                quantity = Integer.parseInt(quantityField.getText());
+            } catch (NumberFormatException e) { }
+
+            List<String> errors = new ArrayList<>();
+
+
+            if(name.isEmpty() || name.isBlank()){
+                errors.add("Debe ingresar el nombre");
+            }
+            if (price <= 0){
+                errors.add("El precio es requerido, debe ser numérico");
+            }
+            if (quantity <= 0){
+                errors.add("La cantidad no debe ser cero, debe ser numérico");
+            }
+
+            if(!errors.isEmpty()){
+                JOptionPane.showMessageDialog(null,
+                        errors.toArray(),
+                        "Error en la validacion",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else{
+                if(id==0){
+                    Object[] product = new Object[]{System.currentTimeMillis(), name, price, quantity};
+                    tableModel.getRows().add(product);
+                    tableModel.fireTableDataChanged();
+
+                    System.out.println(product[0]);
+                    System.out.println(product[1]);
+                    System.out.println(product[2]);
+                }
+                else if(id > 0){
+                    tableModel.setValueAt(id, row, 0);
+                    tableModel.setValueAt(name, row, 1);
+                    tableModel.setValueAt(price, row, 2);
+                    tableModel.setValueAt(quantity, row, 3);
+                }
+
+            }
+
+            id = 0;
+            row = -1;
+            nameField.setText("");
+            priceField.setText("");
+            quantityField.setText("");
+
+        });
 
         JPanel tablePanel = new JPanel(new FlowLayout());
 
         JTable jTable = new JTable();
         jTable.setModel(this.tableModel);
+        jTable.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                row = jTable.rowAtPoint(e.getPoint());
+                int column = jTable.columnAtPoint(e.getPoint());
+
+                if(row > -1 && column > -1){
+                    id = (long) tableModel.getValueAt(row,0);
+                    nameField.setText(tableModel.getValueAt(row,1).toString());
+                    priceField.setText(tableModel.getValueAt(row,2).toString());
+                    quantityField.setText(tableModel.getValueAt(row,3).toString());
+                }
+            }
+        });
+
         JScrollPane scroll = new JScrollPane(jTable);
         tablePanel.add(scroll);
-        c.add(tablePanel, BorderLayout.EAST);
-        c.add(formPanel, BorderLayout.WEST);
+        c.add(tablePanel, BorderLayout.SOUTH);
+        c.add(formPanel, BorderLayout.NORTH);
         pack();
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -56,28 +130,6 @@ public class JdbcSwingCrud extends JFrame {
 
     public static void main(String[] args) {
         new JdbcSwingCrud();
-    }
-
-    private class AddActionListener implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            String name = nameField.getText();
-            int price = Integer.parseInt(priceField.getText());
-            int quantity = Integer.parseInt(quantityField.getText());
-
-            Object[] product = new Object[]{System.currentTimeMillis(), name, price, quantity};
-            tableModel.getRows().add(product);
-            tableModel.fireTableDataChanged();
-
-            nameField.setText("");
-            priceField.setText("");
-            quantityField.setText("");
-
-            System.out.println(product[0]);
-            System.out.println(product[1]);
-            System.out.println(product[2]);
-        }
     }
 
     private class ProductTableModel extends AbstractTableModel {
@@ -102,6 +154,12 @@ public class JdbcSwingCrud extends JFrame {
         @Override
         public Object getValueAt(int rowIndex, int columnIndex) {
             return rows.get(rowIndex)[columnIndex];
+        }
+
+        @Override
+        public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
+            rows.get(rowIndex)[columnIndex] = aValue;
+            fireTableCellUpdated(rowIndex, columnIndex);
         }
 
         @Override
