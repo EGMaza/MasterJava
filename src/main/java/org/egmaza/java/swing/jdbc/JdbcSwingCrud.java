@@ -1,9 +1,12 @@
 package org.egmaza.java.swing.jdbc;
 
 import javax.swing.*;
+import javax.swing.table.AbstractTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JdbcSwingCrud extends JFrame {
 
@@ -11,6 +14,8 @@ public class JdbcSwingCrud extends JFrame {
     private JTextField nameField = new JTextField();
     private JTextField priceField = new JTextField();
     private JTextField quantityField = new JTextField();
+    private ProductTableModel tableModel = new ProductTableModel();
+
 
     public JdbcSwingCrud() throws HeadlessException {
         super("Swing: GUI con Base de Datos MySQL");
@@ -35,6 +40,13 @@ public class JdbcSwingCrud extends JFrame {
         formPanel.add(buttonSave);
         buttonSave.addActionListener(new AddActionListener());
 
+        JPanel tablePanel = new JPanel(new FlowLayout());
+
+        JTable jTable = new JTable();
+        jTable.setModel(this.tableModel);
+        JScrollPane scroll = new JScrollPane(jTable);
+        tablePanel.add(scroll);
+        c.add(tablePanel, BorderLayout.EAST);
         c.add(formPanel, BorderLayout.WEST);
         pack();
         setVisible(true);
@@ -54,11 +66,47 @@ public class JdbcSwingCrud extends JFrame {
             int price = Integer.parseInt(priceField.getText());
             int quantity = Integer.parseInt(quantityField.getText());
 
-            Object[] product = new Object[]{name, price, quantity};
+            Object[] product = new Object[]{System.currentTimeMillis(), name, price, quantity};
+            tableModel.getRows().add(product);
+            tableModel.fireTableDataChanged();
+
+            nameField.setText("");
+            priceField.setText("");
+            quantityField.setText("");
 
             System.out.println(product[0]);
             System.out.println(product[1]);
             System.out.println(product[2]);
+        }
+    }
+
+    private class ProductTableModel extends AbstractTableModel {
+
+        private String[] columns = new String[]{"Id", "Nombre", "Precio", "Cantidad"};
+        private List<Object[]> rows = new ArrayList<>();
+
+        public List<Object[]> getRows() {
+            return rows;
+        }
+
+        @Override
+        public int getRowCount() {
+            return rows.size();
+        }
+
+        @Override
+        public int getColumnCount() {
+            return columns.length;
+        }
+
+        @Override
+        public Object getValueAt(int rowIndex, int columnIndex) {
+            return rows.get(rowIndex)[columnIndex];
+        }
+
+        @Override
+        public String getColumnName(int column) {
+            return columns[column];
         }
     }
 }
