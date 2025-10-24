@@ -74,7 +74,7 @@ public class JdbcSwingCrud extends JFrame {
             }
             else{
                 if(id==0){
-                    Object[] product = new Object[]{System.currentTimeMillis(), name, price, quantity};
+                    Object[] product = new Object[]{System.currentTimeMillis(), name, price, quantity, "remove"};
                     tableModel.getRows().add(product);
                     tableModel.fireTableDataChanged();
 
@@ -90,12 +90,7 @@ public class JdbcSwingCrud extends JFrame {
                 }
 
             }
-
-            id = 0;
-            row = -1;
-            nameField.setText("");
-            priceField.setText("");
-            quantityField.setText("");
+            reset();
 
         });
 
@@ -109,7 +104,21 @@ public class JdbcSwingCrud extends JFrame {
                 row = jTable.rowAtPoint(e.getPoint());
                 int column = jTable.columnAtPoint(e.getPoint());
 
-                if(row > -1 && column > -1){
+                if(row > -1 && column ==4){
+                    int option = JOptionPane.showConfirmDialog(null,
+                            "¿Está seguro que desea eliminar el registro " +
+                            tableModel.getValueAt(row, 1).toString() + "?",
+                            "Cuidado, Eliminar Item",
+                            JOptionPane.OK_CANCEL_OPTION,
+                            JOptionPane.QUESTION_MESSAGE);
+
+                    if(option  == JOptionPane.OK_OPTION){
+                        tableModel.getRows().remove(row);
+                        tableModel.fireTableDataChanged();
+                    }
+                    reset();
+                }
+                else if(row > -1 && column > -1){
                     id = (long) tableModel.getValueAt(row,0);
                     nameField.setText(tableModel.getValueAt(row,1).toString());
                     priceField.setText(tableModel.getValueAt(row,2).toString());
@@ -128,13 +137,21 @@ public class JdbcSwingCrud extends JFrame {
 
     }
 
+    private void reset() {
+        id = 0;
+        row = -1;
+        nameField.setText("");
+        priceField.setText("");
+        quantityField.setText("");
+    }
+
     public static void main(String[] args) {
         new JdbcSwingCrud();
     }
 
     private class ProductTableModel extends AbstractTableModel {
 
-        private String[] columns = new String[]{"Id", "Nombre", "Precio", "Cantidad"};
+        private String[] columns = new String[]{"Id", "Nombre", "Precio", "Cantidad", "Delete"};
         private List<Object[]> rows = new ArrayList<>();
 
         public List<Object[]> getRows() {
