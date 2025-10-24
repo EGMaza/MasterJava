@@ -90,7 +90,9 @@ public class Window08Calculator extends JFrame implements ActionListener {
                 break;
             case CALCULATOR_DIVISION:
                 if(b==0){
-                    throw new ArithmeticException("No se puede dividir entre cero, infinito");
+                    JOptionPane.showMessageDialog(null, "No se puede dividir entre cero, infinito!", "Error de entrada", JOptionPane.ERROR_MESSAGE);
+                    break;
+                    //throw new ArithmeticException("No se puede dividir entre cero, infinito");
                 }
                 value = a/b;
                 break;
