@@ -1,5 +1,9 @@
 package org.egmaza.java.swing.jdbc;
 
+import org.egmaza.java.swing.jdbc.models.Product;
+import org.egmaza.java.swing.jdbc.repositories.ProductRepository;
+import org.egmaza.java.swing.jdbc.repositories.ProductRepositoryImpl;
+
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import java.awt.*;
@@ -16,6 +20,8 @@ public class JdbcSwingCrud extends JFrame {
     private JTextField quantityField = new JTextField();
     private ProductTableModel tableModel = new ProductTableModel();
 
+    private ProductRepository productRepository;
+
     private long id;
     private int row;
 
@@ -24,6 +30,7 @@ public class JdbcSwingCrud extends JFrame {
 
         c = getContentPane();
         c.setLayout(new BorderLayout(20, 10));
+        productRepository = new ProductRepositoryImpl();
 
         JPanel formPanel = new JPanel(new GridLayout(4,2,20,10));
         formPanel.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
@@ -73,8 +80,9 @@ public class JdbcSwingCrud extends JFrame {
                         JOptionPane.ERROR_MESSAGE);
             }
             else{
+                Product productDb = productRepository.save(new Product(id==0?null:id,name, price, quantity));
                 if(id==0){
-                    Object[] product = new Object[]{System.currentTimeMillis(), name, price, quantity, "remove"};
+                    Object[] product = new Object[]{productDb.getId(), name, price, quantity, "remove"};
                     tableModel.getRows().add(product);
                     tableModel.fireTableDataChanged();
 
@@ -113,6 +121,8 @@ public class JdbcSwingCrud extends JFrame {
                             JOptionPane.QUESTION_MESSAGE);
 
                     if(option  == JOptionPane.OK_OPTION){
+                        productRepository.delete((long) tableModel.getValueAt(row,0));
+
                         tableModel.getRows().remove(row);
                         tableModel.fireTableDataChanged();
                     }
@@ -153,6 +163,16 @@ public class JdbcSwingCrud extends JFrame {
 
         private String[] columns = new String[]{"Id", "Nombre", "Precio", "Cantidad", "Delete"};
         private List<Object[]> rows = new ArrayList<>();
+
+        public ProductTableModel() {
+            ProductRepository productRepository = new ProductRepositoryImpl();
+            List<Product> products = productRepository.findAll();
+
+            for(Product p:products){
+            Object[] row = {p.getId(), p.getName(),p.getPrice(),p.getQuantity(), "remove"};
+            rows.add(row);
+            }
+        }
 
         public List<Object[]> getRows() {
             return rows;
