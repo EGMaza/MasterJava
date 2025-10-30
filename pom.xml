@@ -38,7 +38,6 @@
                     <password>123456</password>
                 </configuration>
             </plugin>
-
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.2.3</version>
@@ -46,7 +45,6 @@
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -56,6 +54,5 @@
             </plugin>
         </plugins>
     </build>
-
 
 </project>
