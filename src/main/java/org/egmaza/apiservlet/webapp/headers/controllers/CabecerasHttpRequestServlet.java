@@ -1,4 +1,4 @@
-package org.egmaza.apiservlet.webapp.headers;
+package org.egmaza.apiservlet.webapp.headers.controllers;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
