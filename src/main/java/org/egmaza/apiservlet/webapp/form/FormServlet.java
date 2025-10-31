@@ -8,9 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @WebServlet("/registro")
 public class FormServlet extends HttpServlet {
@@ -29,28 +27,28 @@ public class FormServlet extends HttpServlet {
         boolean habilitar = req.getParameter("habilitar") != null && req.getParameter("habilitar").equals("on");
         String secreto = req.getParameter("secreto");
 
-        List<String> errores = new ArrayList<>();
+        Map<String, String> errores = new HashMap<>();
 
         if (username == null || username.isBlank()) {
-            errores.add("El username es requerido");
+            errores.put("username","El username es requerido");
         }
         if (password == null || password.isBlank()) {
-            errores.add("El password no puede ser vacío");
+            errores.put("password","El password no puede ser vacío");
         }
         if (email == null || !email.contains("@")) {
-            errores.add("el email es requerido y debe tener un formato de correo");
+            errores.put("email","el email es requerido y debe tener un formato de correo");
         }
         if (pais == null || pais.isEmpty() || pais.equals(" ")) {
-            errores.add("El país es requerido");
+            errores.put("pais","El país es requerido");
         }
         if (lenguajes == null || lenguajes.length == 0) {
-            errores.add("debe seleccionar al menos un lenguaje");
+            errores.put("lenguajes","debe seleccionar al menos un lenguaje");
         }
         if (roles == null || roles.length == 0) {
-            errores.add("debe seleccionar al menos un rol");
+            errores.put("roles","debe seleccionar al menos un rol");
         }
         if (idioma == null) {
-            errores.add("debe seleccionar un idioma");
+            errores.put("idioma","debe seleccionar un idioma");
         }
 
         if (errores.isEmpty()) {
