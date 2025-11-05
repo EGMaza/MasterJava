@@ -7,7 +7,9 @@ org\egmaza\apiservlet\webapp\headers\services\LoginServiceSessionImpl.class
 org\egmaza\apiservlet\webapp\headers\models\Carro.class
 org\egmaza\apiservlet\webapp\headers\controllers\AgregarCarroServlet.class
 org\egmaza\apiservlet\webapp\headers\controllers\VerCarroServlet.class
+org\egmaza\apiservlet\webapp\headers\controllers\ActualizarCarroServlet.class
 org\egmaza\apiservlet\webapp\headers\models\ItemCarro.class
 org\egmaza\apiservlet\webapp\headers\models\Producto.class
 org\egmaza\apiservlet\webapp\headers\controllers\ProductoServlet.class
 org\egmaza\apiservlet\webapp\headers\controllers\LogoutServlet.class
+org\egmaza\apiservlet\webapp\headers\listeners\AplicacionListener.class
