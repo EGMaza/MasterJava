@@ -1,5 +1,6 @@
 package org.egmaza.apiservlet.webapp.headers.repositories;
 
+import org.egmaza.apiservlet.webapp.headers.models.Categoria;
 import org.egmaza.apiservlet.webapp.headers.models.Producto;
 
 import java.sql.*;
@@ -48,11 +49,37 @@ public class ProductoRepositoryJdbcImpl implements Repository<Producto> {
     @Override
     public void guardar(Producto producto) throws SQLException {
 
+        String sql;
+        if(producto.getId()!=null && producto.getId()>0){
+            sql = "UPDATE productos2 set nombre=?, precio=?, sku=?, categoria_id=? WHERE id=?";
+        }
+        else{
+            sql = "INSERT INTO productos2 (nombre, precio, sku, categoria_id, fecha_regisro) values (?, ?, ?, ?, ?)";
+        }
+
+        try(PreparedStatement stmt = conn.prepareStatement(sql)){
+            stmt.setString(1, producto.getNombre());
+            stmt.setInt(2, producto.getPrecio());
+            stmt.setString(3, producto.getSku());
+            stmt.setLong(4, producto.getCategoria().getId());
+
+            if(producto.getId()!=null && producto.getId()>0){
+                stmt.setLong(5,producto.getCategoria().getId());
+            }
+            else{
+                stmt.setDate(5, Date.valueOf(producto.getFechaRegistro()));
+            }
+            stmt.executeUpdate();
+        }
     }
 
     @Override
     public void eliminar(Long id) throws SQLException {
-
+        String sql = "DELETE FROM productos2 WHERE id = ?";
+        try(PreparedStatement stmt = conn.prepareStatement(sql)){
+            stmt.setLong(1, id);
+            stmt.executeUpdate();
+        }
     }
 
     private Producto crearProducto(ResultSet rs) throws SQLException {
@@ -60,7 +87,13 @@ public class ProductoRepositoryJdbcImpl implements Repository<Producto> {
         producto.setId(rs.getLong("id"));
         producto.setNombre(rs.getString("nombre"));
         producto.setPrecio(rs.getInt("precio"));
-        producto.setTipo(rs.getString("categoria"));
+        producto.setSku(rs.getString("sku"));
+        producto.setFechaRegistro(rs.getDate("fecha_registro").toLocalDate());
+        Categoria c = new Categoria();
+        c.setId(rs.getLong("categoria_id"));
+        c.setNombre(rs.getString("categoria"));
+        producto.setCategoria(c);
+
         return producto;
     }
 }
