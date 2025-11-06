@@ -4,6 +4,7 @@ org\egmaza\apiservlet\webapp\headers\services\ProductoServiceImpl.class
 org\egmaza\apiservlet\webapp\headers\services\ProductoService.class
 org\egmaza\apiservlet\webapp\headers\services\LoginService.class
 org\egmaza\apiservlet\webapp\headers\services\LoginServiceSessionImpl.class
+org\egmaza\apiservlet\webapp\headers\filters\LoginFiltro.class
 org\egmaza\apiservlet\webapp\headers\models\Carro.class
 org\egmaza\apiservlet\webapp\headers\controllers\AgregarCarroServlet.class
 org\egmaza\apiservlet\webapp\headers\controllers\VerCarroServlet.class
