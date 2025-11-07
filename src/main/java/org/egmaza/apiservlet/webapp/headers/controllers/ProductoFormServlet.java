@@ -16,6 +16,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @WebServlet("/productos/form")
 public class ProductoFormServlet extends HttpServlet {
@@ -26,6 +27,23 @@ public class ProductoFormServlet extends HttpServlet {
         ProductoService service = new ProductoServiceJdbcImpl(conn);
         req.setAttribute("categorias", service.listarCategoria());
 
+        Long id;
+        try {
+            id = Long.valueOf(req.getParameter("id"));
+        }
+        catch (NumberFormatException e) {
+            id = 0L;
+        }
+
+        Producto producto = new Producto();
+        producto.setCategoria(new Categoria());
+        if(id>0){
+            Optional<Producto> opt = service.porId(id);
+            if (opt.isPresent()){
+                producto = opt.get();
+            }
+        }
+        req.setAttribute("producto", producto);
         getServletContext().getRequestDispatcher("/form.jsp").forward(req, resp);
     }
 
@@ -60,6 +78,9 @@ public class ProductoFormServlet extends HttpServlet {
 
         if (sku == null || sku.isEmpty()){
             errores.put("sku", "el sku es requerido");
+        }
+        else if(sku.length()>10){
+            errores.put("sku", "el sku no debe ser mayor de 10 caracteres");
         }
 
         if (fechaStr == null || fechaStr.isEmpty()){

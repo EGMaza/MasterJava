@@ -1,10 +1,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"
-import="java.util.*, org.egmaza.apiservlet.webapp.headers.models.*"%>
+import="java.util.*, java.time.format.*, org.egmaza.apiservlet.webapp.headers.models.*"%>
 
 
 <%
 List<Categoria> categorias = (List<Categoria>) request.getAttribute("categorias");
 Map<String, String> errores = (Map<String, String>) request.getAttribute("errores");
+Producto producto = (Producto) request.getAttribute("producto");
+String fecha = producto.getFechaRegistro() != null ?
+producto.getFechaRegistro().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) : "";
 %>
 
 <!DOCTYPE html>
@@ -19,7 +22,7 @@ Map<String, String> errores = (Map<String, String>) request.getAttribute("errore
         <div>
             <label for="nombre">Nombre</label>
             <div>
-                <input type="text" name="nombre" id="nombre">
+                <input type="text" name="nombre" id="nombre" value="<%=producto.getNombre()!=null ? producto.getNombre() : ""%>">
             </div>
         </div>
         <%if(errores != null && errores.containsKey("nombre")){%>
@@ -29,7 +32,7 @@ Map<String, String> errores = (Map<String, String>) request.getAttribute("errore
         <div>
             <label for="precio">Precio</label>
             <div>
-                <input type="number" name="precio" id="precio">
+                <input type="number" name="precio" id="precio" value="<%=producto.getPrecio()!=0 ? producto.getPrecio() : ""%>">
             </div>
         </div>
         <%if(errores != null && errores.containsKey("precio")){%>
@@ -39,7 +42,7 @@ Map<String, String> errores = (Map<String, String>) request.getAttribute("errore
         <div>
             <label for="sku">Sku</label>
             <div>
-                <input type="text" name="sku" id="sku">
+                <input type="text" name="sku" id="sku" value="<%=producto.getSku()!=null ? producto.getSku() : ""%>">
             </div>
         </div>
         <%if(errores != null && errores.containsKey("sku")){%>
@@ -49,7 +52,7 @@ Map<String, String> errores = (Map<String, String>) request.getAttribute("errore
         <div>
             <label for="fecha_registro">Fecha registro</label>
             <div>
-                <input type="date" name="fecha_registro" id="fecha_registro">
+                <input type="date" name="fecha_registro" id="fecha_registro" value="<%=fecha%>">
             </div>
         </div>
         <%if(errores != null && errores.containsKey("fecha_registro")){%>
@@ -62,7 +65,7 @@ Map<String, String> errores = (Map<String, String>) request.getAttribute("errore
                 <select name="categoria" id="categoria">
                     <option value="">--- Seleccionar ---</option>
                     <%for(Categoria c:categorias){%>
-                    <option value="<%=c.getId()%>"><%=c.getNombre()%></option>
+                    <option value="<%=c.getId()%>" <%=c.getId().equals(producto.getCategoria().getId()) ? "selected" : ""%>><%=c.getNombre()%></option>
                     <%}%>
                 </select>
             </div>
