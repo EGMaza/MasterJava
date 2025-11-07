@@ -54,7 +54,7 @@ public class ProductoRepositoryJdbcImpl implements Repository<Producto> {
             sql = "UPDATE productos2 set nombre=?, precio=?, sku=?, categoria_id=? WHERE id=?";
         }
         else{
-            sql = "INSERT INTO productos2 (nombre, precio, sku, categoria_id, fecha_regisro) values (?, ?, ?, ?, ?)";
+            sql = "INSERT INTO productos2 (nombre, precio, sku, categoria_id, fecha_registro) values (?, ?, ?, ?, ?)";
         }
 
         try(PreparedStatement stmt = conn.prepareStatement(sql)){

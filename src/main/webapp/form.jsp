@@ -1,7 +1,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"
 import="java.util.*, org.egmaza.apiservlet.webapp.headers.models.*"%>
 
-<%List<Categoria> categorias = (List<Categoria>) request.getAttribute("categorias");%>
+
+<%
+List<Categoria> categorias = (List<Categoria>) request.getAttribute("categorias");
+Map<String, String> errores = (Map<String, String>) request.getAttribute("errores");
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +22,9 @@ import="java.util.*, org.egmaza.apiservlet.webapp.headers.models.*"%>
                 <input type="text" name="nombre" id="nombre">
             </div>
         </div>
+        <%if(errores != null && errores.containsKey("nombre")){%>
+            <div style="color:red;"><%=errores.get("nombre")%></div>
+        <%}%>
 
         <div>
             <label for="precio">Precio</label>
@@ -25,6 +32,9 @@ import="java.util.*, org.egmaza.apiservlet.webapp.headers.models.*"%>
                 <input type="number" name="precio" id="precio">
             </div>
         </div>
+        <%if(errores != null && errores.containsKey("precio")){%>
+                    <div style="color:red;"><%=errores.get("precio")%></div>
+                <%}%>
 
         <div>
             <label for="sku">Sku</label>
@@ -32,6 +42,9 @@ import="java.util.*, org.egmaza.apiservlet.webapp.headers.models.*"%>
                 <input type="text" name="sku" id="sku">
             </div>
         </div>
+        <%if(errores != null && errores.containsKey("sku")){%>
+                    <div style="color:red;"><%=errores.get("sku")%></div>
+                <%}%>
 
         <div>
             <label for="fecha_registro">Fecha registro</label>
@@ -39,6 +52,9 @@ import="java.util.*, org.egmaza.apiservlet.webapp.headers.models.*"%>
                 <input type="date" name="fecha_registro" id="fecha_registro">
             </div>
         </div>
+        <%if(errores != null && errores.containsKey("fecha_registro")){%>
+                    <div style="color:red;"><%=errores.get("fecha_registro")%></div>
+                <%}%>
 
         <div>
             <label for="categoria">Categoia</label>
@@ -51,6 +67,9 @@ import="java.util.*, org.egmaza.apiservlet.webapp.headers.models.*"%>
                 </select>
             </div>
         </div>
+        <%if(errores != null && errores.containsKey("categoria")){%>
+                    <div style="color:red;"><%=errores.get("categoria")%></div>
+                <%}%>
 
         <div><input type="submit" value="Crear"></div>
     </form>
