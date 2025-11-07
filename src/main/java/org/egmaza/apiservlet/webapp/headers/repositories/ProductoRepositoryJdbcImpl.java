@@ -64,7 +64,7 @@ public class ProductoRepositoryJdbcImpl implements Repository<Producto> {
             stmt.setLong(4, producto.getCategoria().getId());
 
             if(producto.getId()!=null && producto.getId()>0){
-                stmt.setLong(5,producto.getCategoria().getId());
+                stmt.setLong(5,producto.getId());
             }
             else{
                 stmt.setDate(5, Date.valueOf(producto.getFechaRegistro()));

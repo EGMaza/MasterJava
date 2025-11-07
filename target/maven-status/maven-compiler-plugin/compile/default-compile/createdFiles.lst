@@ -1,3 +1,4 @@
+org\egmaza\apiservlet\webapp\headers\controllers\ProductoEliminarServlet.class
 org\egmaza\apiservlet\webapp\headers\controllers\LoginServlet.class
 org\egmaza\apiservlet\webapp\headers\repositories\ProductoRepositoryJdbcImpl.class
 org\egmaza\apiservlet\webapp\headers\services\LoginServiceSessionImpl.class

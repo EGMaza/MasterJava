@@ -10,7 +10,7 @@ import org.egmaza.apiservlet.webapp.headers.services.LoginServiceSessionImpl;
 import java.io.IOException;
 import java.util.Optional;
 
-@WebFilter("/carro/*")
+@WebFilter({"/carro/*", "/productos/form/*"})
 public class LoginFiltro implements Filter {
 
     @Override
