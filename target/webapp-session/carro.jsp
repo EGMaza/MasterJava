@@ -6,16 +6,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Carro de Compras</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div class="container">
     <h1>Carro de Compras</h1>
     <c:choose>
     <c:when test="${sessionScope.carro == null || sessionScope.carro.items.isEmpty()}">
-        <p>lo sentimos, no hay productos en el carro de compras!</p>
+        <div class="alert alert-warning">lo sentimos, no hay productos en el carro de compras!</div>
     </c:when>
     <c:otherwise>
         <form name="formcarro" action="${pageContext.request.contextPath}/carro/actualizar" method="post">
-        <table>
+        <table class="table table-hover table-striped">
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
@@ -39,15 +42,18 @@
             </c:forEach>
 
             <tr>
-                <td colspan="4" style="text-align: right">Total</td>
+                <td colspan="5" style="text-align: right">Total</td>
                 <td>${carro.total}</td>
             </tr>
         </table>
-        <a href="javascript:document.formcarro.submit();">Actualizar</a>
+        <a class="btn btn-primary" href="javascript:document.formcarro.submit();">Actualizar</a>
     </form>
     </c:otherwise>
     </c:choose>
-    <p><a href="${pageContext.request.contextPath}/productos">Segir comprando</a></p>
-    <p><a href="${pageContext.request.contextPath}/index.html">Volver al inicio</a></p>
+    <div class="my-2">
+        <a class="btn btn-sm btn-secondary" href="${pageContext.request.contextPath}/index.html">Volver al inicio</a>
+        <a class="btn btn-sm btn-success" href="${pageContext.request.contextPath}/productos">Segir comprando</a>
+    </div>
+</div>
 </body>
 </html>

@@ -6,14 +6,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Listado de productos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </head>
 <body>
+<div class="container">
     <h1>Listado de productos</h1>
     <c:if test="${username.present}">
-        <div>Hola ${username.get()}, bienvenido</div>
-        <p><a href="${pageContext.request.contextPath}/productos/form">Crear [+]</a></p>
+        <div class="alert alert-info">Hola ${username.get()}, bienvenido</div>
+        <a class="btn btn-primary my-2" href="${pageContext.request.contextPath}/productos/form">Crear [+]</a>
     </c:if>
-    <table>
+    <table class="table table-hover table-striped">
         <tr>
             <th>ID</th>
             <th>Nombre</th>
@@ -32,16 +35,16 @@
             <td>${p.categoria.nombre}</td>
             <c:if test="${username.present}">
                 <td>${p.precio}</td>
-                <td><a href="${pageContext.request.contextPath}/carro/agregar?id=${p.id}">agregar al carrito</a></td>
-                <td><a href="${pageContext.request.contextPath}/productos/form?id=${p.id}">editar</a></td>
-                <td><a onclick="return confirm('¿Está seguro que desea eliminar el registro?');"
+                <td><a class="btn btn-sm btn-primary" href="${pageContext.request.contextPath}/carro/agregar?id=${p.id}">agregar al carrito</a></td>
+                <td><a class="btn btn-sm btn-success" href="${pageContext.request.contextPath}/productos/form?id=${p.id}">editar</a></td>
+                <td><a class="btn btn-sm btn-danger" onclick="return confirm('¿Está seguro que desea eliminar el registro?');"
                 href="${pageContext.request.contextPath}/productos/eliminar?id=${p.id}">eliminar</a></td>
             </c:if>
         </tr>
         </c:forEach>
     </table>
-    <p><${applicationScope.mensaje}></p>
-    <p><${requestScope.mensaje}></p>
-
+    <p>${applicationScope.mensaje}</p>
+    <p>${requestScope.mensaje}</p>
+</div>
 </body>
 </html>
