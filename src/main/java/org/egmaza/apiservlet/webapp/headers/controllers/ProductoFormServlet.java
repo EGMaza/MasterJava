@@ -99,7 +99,9 @@ public class ProductoFormServlet extends HttpServlet {
 
         LocalDate fecha;
         try{
+
             fecha = LocalDate.parse(fechaStr, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
         }
         catch (DateTimeParseException e){
             fecha = null;

@@ -51,7 +51,7 @@ public class ProductoRepositoryJdbcImpl implements Repository<Producto> {
 
         String sql;
         if(producto.getId()!=null && producto.getId()>0){
-            sql = "UPDATE productos2 set nombre=?, precio=?, sku=?, categoria_id=? WHERE id=?";
+            sql = "UPDATE productos2 set nombre=?, precio=?, sku=?, categoria_id=?, fecha_registro=? WHERE id=?";
         }
         else{
             sql = "INSERT INTO productos2 (nombre, precio, sku, categoria_id, fecha_registro) values (?, ?, ?, ?, ?)";
@@ -62,12 +62,13 @@ public class ProductoRepositoryJdbcImpl implements Repository<Producto> {
             stmt.setInt(2, producto.getPrecio());
             stmt.setString(3, producto.getSku());
             stmt.setLong(4, producto.getCategoria().getId());
+            stmt.setDate(5, Date.valueOf(producto.getFechaRegistro()));
 
             if(producto.getId()!=null && producto.getId()>0){
-                stmt.setLong(5,producto.getId());
+                stmt.setLong(6,producto.getId());
             }
             else{
-                stmt.setDate(5, Date.valueOf(producto.getFechaRegistro()));
+                //stmt.setDate(5, Date.valueOf(producto.getFechaRegistro()));
             }
             stmt.executeUpdate();
         }

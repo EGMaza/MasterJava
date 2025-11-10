@@ -1,4 +1,5 @@
 org\egmaza\apiservlet\webapp\headers\controllers\ProductoEliminarServlet.class
+org\egmaza\apiservlet\webapp\headers\repositories\UsuarioRepository.class
 org\egmaza\apiservlet\webapp\headers\controllers\LoginServlet.class
 org\egmaza\apiservlet\webapp\headers\repositories\ProductoRepositoryJdbcImpl.class
 org\egmaza\apiservlet\webapp\headers\services\LoginServiceSessionImpl.class
@@ -8,9 +9,11 @@ org\egmaza\apiservlet\webapp\headers\controllers\ActualizarCarroServlet.class
 org\egmaza\apiservlet\webapp\headers\models\ItemCarro.class
 org\egmaza\apiservlet\webapp\headers\models\Producto.class
 org\egmaza\apiservlet\webapp\headers\filters\ConexionFilter.class
+org\egmaza\apiservlet\webapp\headers\models\Usuario.class
 org\egmaza\apiservlet\webapp\headers\controllers\LogoutServlet.class
 org\egmaza\apiservlet\webapp\headers\controllers\ProductoFormServlet.class
 org\egmaza\apiservlet\webapp\headers\services\LoginServiceCookieImpl.class
+org\egmaza\apiservlet\webapp\headers\services\UsuarioService.class
 org\egmaza\apiservlet\webapp\headers\services\ProductoServiceImpl.class
 org\egmaza\apiservlet\webapp\headers\services\ServiceJdbcException.class
 org\egmaza\apiservlet\webapp\headers\services\ProductoService.class
@@ -21,6 +24,8 @@ org\egmaza\apiservlet\webapp\headers\services\LoginService.class
 org\egmaza\apiservlet\webapp\headers\filters\LoginFiltro.class
 org\egmaza\apiservlet\webapp\headers\models\Carro.class
 org\egmaza\apiservlet\webapp\headers\controllers\AgregarCarroServlet.class
+org\egmaza\apiservlet\webapp\headers\repositories\UsuarioRepositoryImpl.class
+org\egmaza\apiservlet\webapp\headers\services\UsuarioServiceImpl.class
 org\egmaza\apiservlet\webapp\headers\controllers\ProductoServlet.class
 org\egmaza\apiservlet\webapp\headers\models\Categoria.class
 org\egmaza\apiservlet\webapp\headers\listeners\AplicacionListener.class
