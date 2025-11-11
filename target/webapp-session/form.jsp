@@ -46,7 +46,7 @@
         </c:if>
 
         <div class="row mb-2">
-            <label for="categoria" class="col-form-label col-sm-2">Categoia</label>
+            <label for="categoria" class="col-form-label col-sm-2">Categoria</label>
             <div class="col-sm-4">
                 <select name="categoria" id="categoria" class="form-select">
                     <option value="">--- Seleccionar ---</option>

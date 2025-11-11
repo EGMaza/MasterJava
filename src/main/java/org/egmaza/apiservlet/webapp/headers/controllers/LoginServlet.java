@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 
-        UsuarioService service = new UsuarioServiceImpl((Connection)req.getAttribute("conn"));
+        UsuarioService service = new UsuarioServiceJdbcImpl((Connection)req.getAttribute("conn"));
         Optional<Usuario> usuarioOptional = service.login(username, password);
 
         if(usuarioOptional.isPresent()){

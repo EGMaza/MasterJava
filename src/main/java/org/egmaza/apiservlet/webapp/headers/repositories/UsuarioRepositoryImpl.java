@@ -2,10 +2,8 @@ package org.egmaza.apiservlet.webapp.headers.repositories;
 
 import org.egmaza.apiservlet.webapp.headers.models.Usuario;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UsuarioRepositoryImpl implements UsuarioRepository{
@@ -33,22 +31,64 @@ public class UsuarioRepositoryImpl implements UsuarioRepository{
 
     @Override
     public List<Usuario> listar() throws SQLException {
-        return List.of();
+        List<Usuario> usuarios = new ArrayList<>();
+
+        try(Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM usuarios")){
+
+            while(rs.next()){
+                usuarios.add(crearUsuario(rs));
+            }
+        }
+        return usuarios;
     }
 
     @Override
     public Usuario porId(Long id) throws SQLException {
-        return null;
+        Usuario usuario = null;
+
+        try(PreparedStatement stmt = conn.prepareStatement("SELECT * FROM usuarios WHERE id=?")){
+            stmt.setLong(1,id);
+            try(ResultSet rs = stmt.executeQuery()){
+                if(rs.next()){
+                    usuario = crearUsuario(rs);
+                }
+            }
+        }
+        return usuario;
     }
 
     @Override
     public void guardar(Usuario usuario) throws SQLException {
+        String sql;
+        if(usuario.getId()!=null && usuario.getId()>0){
+            System.out.println("El password que llegó fue: " + usuario.getPassword());
+            sql = "UPDATE usuarios set username=?, password=?, email=? WHERE id=?";
+        }
+        else{
+            sql = "INSERT INTO usuarios (username, password, email) values (?, ?, ?)";
+        }
+
+        try(PreparedStatement stmt = conn.prepareStatement(sql)){
+            stmt.setString(1, usuario.getUsername());
+            stmt.setString(2, usuario.getPassword());
+            stmt.setString(3, usuario.getEmail());
+
+            if(usuario.getId()!=null && usuario.getId()>0){
+                stmt.setLong(4,usuario.getId());
+            }
+            stmt.executeUpdate();
+        }
 
     }
 
     @Override
     public void eliminar(Long id) throws SQLException {
-
+        String sql = "DELETE FROM usuarios WHERE id = ?";
+        try(PreparedStatement stmt = conn.prepareStatement(sql)){
+            stmt.setLong(1, id);
+            stmt.executeUpdate();
+        }
     }
 
     private static Usuario crearUsuario(ResultSet rs) throws SQLException {

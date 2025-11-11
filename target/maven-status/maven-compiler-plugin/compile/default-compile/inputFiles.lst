@@ -1,4 +1,6 @@
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\controllers\LogoutServlet.java
+C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\controllers\UsuarioFormServlet.java
+C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\services\UsuarioServiceJdbcImpl.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\filters\ConexionFilter.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\models\Producto.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\repositories\CategoriaRepositoryImpl.java
@@ -8,6 +10,7 @@ C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\s
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\services\ProductoService.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\controllers\ProductoServlet.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\models\Categoria.java
+C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\controllers\UsuarioEliminarServlet.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\models\Carro.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\services\ProductoServiceJdbcImpl.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\repositories\Repository.java
@@ -15,12 +18,17 @@ C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\s
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\services\ProductoServiceImpl.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\services\ServiceJdbcException.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\models\ItemCarro.java
+C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\repositories\UsuarioRepositoryImpl.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\util\ConexionBaseDatos.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\filters\LoginFiltro.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\listeners\AplicacionListener.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\services\LoginServiceSessionImpl.java
+C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\services\UsuarioService.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\controllers\LoginServlet.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\controllers\ActualizarCarroServlet.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\controllers\ProductoFormServlet.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\controllers\VerCarroServlet.java
+C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\controllers\UsuarioServlet.java
+C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\repositories\UsuarioRepository.java
+C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\models\Usuario.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\webapp-session\src\main\java\org\egmaza\apiservlet\webapp\headers\controllers\ProductoEliminarServlet.java
