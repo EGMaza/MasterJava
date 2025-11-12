@@ -1,6 +1,6 @@
-package org.egmaza.apiservlet.webapp.headers.services;
+package org.egmaza.cdi.headers.services;
 
-import org.egmaza.apiservlet.webapp.headers.models.Usuario;
+import org.egmaza.cdi.headers.models.Usuario;
 
 import java.util.List;
 import java.util.Optional;

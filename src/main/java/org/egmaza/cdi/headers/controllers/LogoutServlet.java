@@ -1,11 +1,10 @@
-package org.egmaza.apiservlet.webapp.headers.controllers;
+package org.egmaza.cdi.headers.controllers;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
-import org.egmaza.apiservlet.webapp.headers.services.LoginService;
-import org.egmaza.apiservlet.webapp.headers.services.LoginServiceCookieImpl;
-import org.egmaza.apiservlet.webapp.headers.services.LoginServiceSessionImpl;
+import org.egmaza.cdi.headers.services.LoginService;
+import org.egmaza.cdi.headers.services.LoginServiceSessionImpl;
 
 import java.io.IOException;
 import java.util.Optional;

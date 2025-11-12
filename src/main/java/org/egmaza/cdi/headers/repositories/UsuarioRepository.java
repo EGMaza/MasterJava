@@ -1,6 +1,6 @@
-package org.egmaza.apiservlet.webapp.headers.repositories;
+package org.egmaza.cdi.headers.repositories;
 
-import org.egmaza.apiservlet.webapp.headers.models.Usuario;
+import org.egmaza.cdi.headers.models.Usuario;
 
 import java.sql.SQLException;
 

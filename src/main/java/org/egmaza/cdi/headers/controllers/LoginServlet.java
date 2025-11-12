@@ -1,10 +1,14 @@
-package org.egmaza.apiservlet.webapp.headers.controllers;
+package org.egmaza.cdi.headers.controllers;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
-import org.egmaza.apiservlet.webapp.headers.models.Usuario;
-import org.egmaza.apiservlet.webapp.headers.services.*;
+import org.egmaza.cdi.headers.models.Usuario;
+import org.egmaza.cdi.headers.services.*;
+import org.egmaza.cdi.headers.services.LoginService;
+import org.egmaza.cdi.headers.services.LoginServiceSessionImpl;
+import org.egmaza.cdi.headers.services.UsuarioService;
+import org.egmaza.cdi.headers.services.UsuarioServiceJdbcImpl;
 
 import java.io.IOException;
 import java.io.PrintWriter;

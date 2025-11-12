@@ -1,11 +1,11 @@
-package org.egmaza.apiservlet.webapp.headers.filters;
+package org.egmaza.cdi.headers.filters;
 
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.egmaza.apiservlet.webapp.headers.services.LoginService;
-import org.egmaza.apiservlet.webapp.headers.services.LoginServiceSessionImpl;
+import org.egmaza.cdi.headers.services.LoginService;
+import org.egmaza.cdi.headers.services.LoginServiceSessionImpl;
 
 import java.io.IOException;
 import java.util.Optional;

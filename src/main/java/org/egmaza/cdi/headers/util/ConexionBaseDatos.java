@@ -1,4 +1,4 @@
-package org.egmaza.apiservlet.webapp.headers.util;
+package org.egmaza.cdi.headers.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

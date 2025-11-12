@@ -1,4 +1,4 @@
-package org.egmaza.apiservlet.webapp.headers.models;
+package org.egmaza.cdi.headers.models;
 
 public class Usuario {
     private Long id;

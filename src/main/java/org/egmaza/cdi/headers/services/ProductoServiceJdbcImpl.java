@@ -1,10 +1,10 @@
-package org.egmaza.apiservlet.webapp.headers.services;
+package org.egmaza.cdi.headers.services;
 
-import org.egmaza.apiservlet.webapp.headers.models.Categoria;
-import org.egmaza.apiservlet.webapp.headers.models.Producto;
-import org.egmaza.apiservlet.webapp.headers.repositories.CategoriaRepositoryImpl;
-import org.egmaza.apiservlet.webapp.headers.repositories.ProductoRepositoryJdbcImpl;
-import org.egmaza.apiservlet.webapp.headers.repositories.Repository;
+import org.egmaza.cdi.headers.models.Categoria;
+import org.egmaza.cdi.headers.models.Producto;
+import org.egmaza.cdi.headers.repositories.CategoriaRepositoryImpl;
+import org.egmaza.cdi.headers.repositories.ProductoRepositoryJdbcImpl;
+import org.egmaza.cdi.headers.repositories.Repository;
 
 import java.sql.Connection;
 import java.sql.SQLException;

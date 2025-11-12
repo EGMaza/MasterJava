@@ -1,4 +1,4 @@
-package org.egmaza.apiservlet.webapp.headers.services;
+package org.egmaza.cdi.headers.services;
 
 public class ServiceJdbcException extends RuntimeException{
 

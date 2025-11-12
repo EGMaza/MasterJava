@@ -1,4 +1,4 @@
-package org.egmaza.apiservlet.webapp.headers.repositories;
+package org.egmaza.cdi.headers.repositories;
 
 import java.sql.SQLException;
 import java.util.List;

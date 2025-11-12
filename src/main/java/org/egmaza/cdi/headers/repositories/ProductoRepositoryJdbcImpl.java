@@ -1,7 +1,7 @@
-package org.egmaza.apiservlet.webapp.headers.repositories;
+package org.egmaza.cdi.headers.repositories;
 
-import org.egmaza.apiservlet.webapp.headers.models.Categoria;
-import org.egmaza.apiservlet.webapp.headers.models.Producto;
+import org.egmaza.cdi.headers.models.Categoria;
+import org.egmaza.cdi.headers.models.Producto;
 
 import java.sql.*;
 import java.util.ArrayList;

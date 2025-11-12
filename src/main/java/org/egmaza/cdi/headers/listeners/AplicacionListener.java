@@ -1,11 +1,11 @@
-package org.egmaza.apiservlet.webapp.headers.listeners;
+package org.egmaza.cdi.headers.listeners;
 
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebListener;
 import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.HttpSessionEvent;
 import jakarta.servlet.http.HttpSessionListener;
-import org.egmaza.apiservlet.webapp.headers.models.Carro;
+import org.egmaza.cdi.headers.models.Carro;
 
 @WebListener
 public class AplicacionListener implements ServletContextListener,

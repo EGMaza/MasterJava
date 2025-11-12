@@ -1,14 +1,14 @@
-package org.egmaza.apiservlet.webapp.headers.controllers;
+package org.egmaza.cdi.headers.controllers;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.egmaza.apiservlet.webapp.headers.models.Categoria;
-import org.egmaza.apiservlet.webapp.headers.models.Producto;
-import org.egmaza.apiservlet.webapp.headers.services.ProductoService;
-import org.egmaza.apiservlet.webapp.headers.services.ProductoServiceJdbcImpl;
+import org.egmaza.cdi.headers.models.Categoria;
+import org.egmaza.cdi.headers.models.Producto;
+import org.egmaza.cdi.headers.services.ProductoService;
+import org.egmaza.cdi.headers.services.ProductoServiceJdbcImpl;
 
 import java.io.IOException;
 import java.sql.Connection;

@@ -1,4 +1,4 @@
-package org.egmaza.apiservlet.webapp.headers.controllers;
+package org.egmaza.cdi.headers.controllers;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import org.egmaza.apiservlet.webapp.headers.models.Carro;
+import org.egmaza.cdi.headers.models.Carro;
 
 import java.io.IOException;
 import java.util.Arrays;

@@ -1,7 +1,7 @@
-package org.egmaza.apiservlet.webapp.headers.services;
+package org.egmaza.cdi.headers.services;
 
-import org.egmaza.apiservlet.webapp.headers.models.Categoria;
-import org.egmaza.apiservlet.webapp.headers.models.Producto;
+import org.egmaza.cdi.headers.models.Categoria;
+import org.egmaza.cdi.headers.models.Producto;
 
 import java.util.List;
 import java.util.Optional;
