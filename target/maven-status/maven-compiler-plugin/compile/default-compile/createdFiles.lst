@@ -29,6 +29,7 @@ org\egmaza\apiservlet\webapp\headers\filters\LoginFiltro.class
 org\egmaza\apiservlet\webapp\headers\models\Carro.class
 org\egmaza\apiservlet\webapp\headers\controllers\AgregarCarroServlet.class
 org\egmaza\apiservlet\webapp\headers\repositories\UsuarioRepositoryImpl.class
+org\egmaza\apiservlet\webapp\headers\util\ConexionBaseDatosDS.class
 org\egmaza\apiservlet\webapp\headers\controllers\ProductoServlet.class
 org\egmaza\apiservlet\webapp\headers\models\Categoria.class
 org\egmaza\apiservlet\webapp\headers\listeners\AplicacionListener.class
