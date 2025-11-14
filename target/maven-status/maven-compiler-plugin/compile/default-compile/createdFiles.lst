@@ -5,6 +5,7 @@ org\egmaza\cdi\headers\services\LoginService.class
 org\egmaza\cdi\headers\repositories\UsuarioRepositoryImpl.class
 org\egmaza\cdi\headers\services\ProductoServiceImpl.class
 org\egmaza\cdi\headers\controllers\ProductoFormServlet.class
+org\egmaza\cdi\headers\configs\ProducerResources.class
 org\egmaza\cdi\headers\util\ConexionBaseDatosDS.class
 org\egmaza\cdi\headers\models\Producto.class
 org\egmaza\cdi\headers\controllers\LoginServlet.class
