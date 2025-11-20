@@ -1,17 +1,18 @@
 package org.egmaza.cdi.headers.controllers;
 
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.egmaza.cdi.headers.configs.ProductoServicePrincipal;
 import org.egmaza.cdi.headers.models.Categoria;
 import org.egmaza.cdi.headers.models.Producto;
 import org.egmaza.cdi.headers.services.ProductoService;
-import org.egmaza.cdi.headers.services.ProductoServiceJdbcImpl;
 
 import java.io.IOException;
-import java.sql.Connection;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -22,10 +23,12 @@ import java.util.Optional;
 @WebServlet("/productos/form")
 public class ProductoFormServlet extends HttpServlet {
 
+    @Inject
+    @ProductoServicePrincipal
+    private ProductoService service;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Connection conn = (Connection) req.getAttribute("conn");
-        ProductoService service = new ProductoServiceJdbcImpl(conn);
 
         Long id;
         try {
@@ -51,8 +54,6 @@ public class ProductoFormServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Connection conn = (Connection) req.getAttribute("conn");
-        ProductoService service = new ProductoServiceJdbcImpl(conn);
 
         String nombre = req.getParameter("nombre");
         Integer precio;

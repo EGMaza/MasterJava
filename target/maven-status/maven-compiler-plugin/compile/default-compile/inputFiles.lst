@@ -28,6 +28,7 @@ C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-de
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\models\Carro.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\controllers\VerCarroServlet.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\util\ConexionBaseDatos.java
+C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\configs\ProducerResources.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\controllers\ProductoFormServlet.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\filters\LoginFiltro.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\services\ServiceJdbcException.java

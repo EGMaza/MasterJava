@@ -1,25 +1,26 @@
 package org.egmaza.cdi.headers.services;
 
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
+import org.egmaza.cdi.headers.configs.ProductoServicePrincipal;
 import org.egmaza.cdi.headers.models.Categoria;
 import org.egmaza.cdi.headers.models.Producto;
-import org.egmaza.cdi.headers.repositories.CategoriaRepositoryImpl;
-import org.egmaza.cdi.headers.repositories.ProductoRepositoryJdbcImpl;
 import org.egmaza.cdi.headers.repositories.Repository;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
+@ApplicationScoped
+@ProductoServicePrincipal
 public class ProductoServiceJdbcImpl implements ProductoService{
 
+    @Inject
     private Repository<Producto> repositoryJdbc;
-    private Repository<Categoria> repositoryCategoriaJdbc;
 
-    public ProductoServiceJdbcImpl(Connection connection) {
-        this.repositoryJdbc = new ProductoRepositoryJdbcImpl(connection);
-        this.repositoryCategoriaJdbc = new CategoriaRepositoryImpl(connection);
-    }
+    @Inject
+    private Repository<Categoria> repositoryCategoriaJdbc;
 
     @Override
     public List<Producto> listar() {

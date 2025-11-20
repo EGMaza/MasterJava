@@ -4,6 +4,7 @@ org\egmaza\cdi\headers\controllers\ProductoServlet.class
 org\egmaza\cdi\headers\services\LoginService.class
 org\egmaza\cdi\headers\repositories\UsuarioRepositoryImpl.class
 org\egmaza\cdi\headers\services\ProductoServiceImpl.class
+org\egmaza\cdi\headers\configs\ProductoServicePrincipal.class
 org\egmaza\cdi\headers\controllers\ProductoFormServlet.class
 org\egmaza\cdi\headers\configs\ProducerResources.class
 org\egmaza\cdi\headers\util\ConexionBaseDatosDS.class
@@ -32,5 +33,6 @@ org\egmaza\cdi\headers\services\LoginServiceSessionImpl.class
 org\egmaza\cdi\headers\models\Carro.class
 org\egmaza\cdi\headers\repositories\Repository.class
 org\egmaza\cdi\headers\repositories\UsuarioRepository.class
+org\egmaza\cdi\headers\configs\MysqlConn.class
 org\egmaza\cdi\headers\controllers\LogoutServlet.class
 org\egmaza\cdi\headers\services\LoginServiceCookieImpl.class

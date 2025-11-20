@@ -1,32 +1,37 @@
 package org.egmaza.cdi.headers.controllers;
 
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.egmaza.cdi.headers.configs.ProductoServicePrincipal;
 import org.egmaza.cdi.headers.models.Producto;
 import org.egmaza.cdi.headers.services.*;
 import org.egmaza.cdi.headers.services.LoginService;
 import org.egmaza.cdi.headers.services.LoginServiceSessionImpl;
 import org.egmaza.cdi.headers.services.ProductoService;
-import org.egmaza.cdi.headers.services.ProductoServiceJdbcImpl;
 
 import java.io.IOException;
-import java.sql.Connection;
 import java.util.List;
 import java.util.Optional;
 
 @WebServlet({"/productos.html", "/productos"})
 public class ProductoServlet extends HttpServlet {
 
+    @Inject
+    @ProductoServicePrincipal
+    private ProductoService service;
+
+    @Inject
+    private LoginService auth;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Connection connection = (Connection)req.getAttribute("conn");
-        ProductoService service = new ProductoServiceJdbcImpl(connection);
         List<Producto> productos = service.listar();
 
-        LoginService auth = new LoginServiceSessionImpl();
         Optional<String> usernameOptional = auth.getUsername(req);
 
         req.setAttribute("productos", productos);

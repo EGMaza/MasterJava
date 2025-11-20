@@ -5,6 +5,7 @@ import jakarta.inject.Named;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletResponse;
+import org.egmaza.cdi.headers.configs.MysqlConn;
 import org.egmaza.cdi.headers.services.ServiceJdbcException;
 import org.egmaza.cdi.headers.util.ConexionBaseDatosDS;
 
@@ -17,7 +18,7 @@ import java.sql.SQLException;
 public class ConexionFilter implements Filter {
 
     @Inject
-    @Named("conn")
+    @MysqlConn
     private Connection conn;
 
     @Override
@@ -30,7 +31,7 @@ public class ConexionFilter implements Filter {
             }
 
             try {
-                request.setAttribute("conn", connRequest);
+                //request.setAttribute("conn", connRequest);
                 chain.doFilter(request,response);
                 connRequest.commit();
             } catch (SQLException | ServiceJdbcException e) {

@@ -1,5 +1,7 @@
 package org.egmaza.cdi.headers.services;
 
+import jakarta.enterprise.inject.Alternative;
+import jakarta.inject.Named;
 import org.egmaza.cdi.headers.models.Categoria;
 import org.egmaza.cdi.headers.models.Producto;
 
@@ -7,6 +9,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+//@Alternative
+//@Named("excluido")
 public class ProductoServiceImpl implements ProductoService{
 
     @Override

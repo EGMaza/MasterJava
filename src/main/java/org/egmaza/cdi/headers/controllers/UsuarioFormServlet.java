@@ -1,5 +1,7 @@
 package org.egmaza.cdi.headers.controllers;
 
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -18,10 +20,11 @@ import java.util.Optional;
 @WebServlet("/usuarios/form")
 public class UsuarioFormServlet extends HttpServlet {
 
+    @Inject
+    private UsuarioService service;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Connection conn = (Connection) req.getAttribute("conn");
-        UsuarioService service = new UsuarioServiceJdbcImpl(conn);
 
         Long id;
         try {
@@ -46,8 +49,8 @@ public class UsuarioFormServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Connection conn = (Connection) req.getAttribute("conn");
-        UsuarioService service = new UsuarioServiceJdbcImpl(conn);
+        //Connection conn = (Connection) req.getAttribute("conn");
+        //UsuarioService service = new UsuarioServiceJdbcImpl(conn);
 
         String username = req.getParameter("username");
         String password = req.getParameter("password");

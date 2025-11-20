@@ -1,20 +1,21 @@
 package org.egmaza.cdi.headers.services;
 
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import org.egmaza.cdi.headers.models.Usuario;
 import org.egmaza.cdi.headers.repositories.UsuarioRepository;
-import org.egmaza.cdi.headers.repositories.UsuarioRepositoryImpl;
-
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
+@ApplicationScoped
 public class UsuarioServiceJdbcImpl implements UsuarioService{
 
     private UsuarioRepository usuarioRepository;
 
-    public UsuarioServiceJdbcImpl(Connection conn) {
-        this.usuarioRepository = new UsuarioRepositoryImpl(conn);
+    @Inject
+    public UsuarioServiceJdbcImpl(UsuarioRepository usuarioRepository) {
+        this.usuarioRepository = usuarioRepository;
     }
 
     @Override
