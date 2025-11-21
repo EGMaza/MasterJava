@@ -19,6 +19,7 @@ org\egmaza\cdi\headers\filters\LoginFiltro.class
 org\egmaza\cdi\headers\services\ServiceJdbcException.class
 org\egmaza\cdi\headers\controllers\UsuarioServlet.class
 org\egmaza\cdi\headers\listeners\AplicacionListener.class
+org\egmaza\cdi\headers\interceptors\TransactionalJdbc.class
 org\egmaza\cdi\headers\services\UsuarioService.class
 org\egmaza\cdi\headers\configs\CarroCompra.class
 org\egmaza\cdi\headers\controllers\UsuarioFormServlet.class
@@ -35,6 +36,7 @@ org\egmaza\cdi\headers\services\ProductoService.class
 org\egmaza\cdi\headers\controllers\ProductoEliminarServlet.class
 org\egmaza\cdi\headers\controllers\VerCarroServlet.class
 org\egmaza\cdi\headers\services\UsuarioServiceJdbcImpl.class
+org\egmaza\cdi\headers\interceptors\TransactionalInterceptor.class
 org\egmaza\cdi\headers\services\LoginServiceSessionImpl.class
 org\egmaza\cdi\headers\models\Carro.class
 org\egmaza\cdi\headers\repositories\UsuarioRepository.class
