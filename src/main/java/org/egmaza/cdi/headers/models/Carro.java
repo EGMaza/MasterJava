@@ -1,15 +1,13 @@
 package org.egmaza.cdi.headers.models;
 
-import jakarta.enterprise.context.SessionScoped;
-import jakarta.inject.Named;
+import org.egmaza.cdi.headers.configs.CarroCompra;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@SessionScoped
-@Named
+@CarroCompra
 public class Carro implements Serializable {
 
     private List<ItemCarro> items;

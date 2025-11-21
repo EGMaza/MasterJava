@@ -4,6 +4,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import org.egmaza.cdi.headers.configs.MysqlConn;
+import org.egmaza.cdi.headers.configs.Repositorio;
 import org.egmaza.cdi.headers.models.Categoria;
 import org.egmaza.cdi.headers.models.Producto;
 
@@ -11,7 +12,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@ApplicationScoped
+@Repositorio
 public class ProductoRepositoryJdbcImpl implements Repository<Producto> {
 
     @Inject
