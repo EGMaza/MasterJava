@@ -2,11 +2,10 @@ package org.egmaza.cdi.headers.services;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import jakarta.inject.Named;
 import org.egmaza.cdi.headers.configs.ProductoServicePrincipal;
 import org.egmaza.cdi.headers.models.Categoria;
 import org.egmaza.cdi.headers.models.Producto;
-import org.egmaza.cdi.headers.repositories.Repository;
+import org.egmaza.cdi.headers.repositories.CrudRepository;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -17,10 +16,10 @@ import java.util.Optional;
 public class ProductoServiceJdbcImpl implements ProductoService{
 
     @Inject
-    private Repository<Producto> repositoryJdbc;
+    private CrudRepository<Producto> repositoryJdbc;
 
     @Inject
-    private Repository<Categoria> repositoryCategoriaJdbc;
+    private CrudRepository<Categoria> repositoryCategoriaJdbc;
 
     @Override
     public List<Producto> listar() {

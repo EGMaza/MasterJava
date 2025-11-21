@@ -1,19 +1,34 @@
 package org.egmaza.cdi.headers.models;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+import jakarta.inject.Inject;
 import org.egmaza.cdi.headers.configs.CarroCompra;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 @CarroCompra
 public class Carro implements Serializable {
-
     private List<ItemCarro> items;
 
-    public Carro() {
+    @Inject
+    private transient Logger log;
+
+    @PostConstruct
+    public void inicializar(){
         this.items = new ArrayList<>();
+        System.out.println("Inicializando el carro de compras! con sout");
+        log.info("Inicializando el carro de compras!");
+    }
+
+    @PreDestroy
+    public void destruir(){
+        System.out.println("Destruyendo el carro compras con sout");
+        log.info("Destruyendo el carro compras");
     }
 
     public void addItemCarro(ItemCarro itemCarro){

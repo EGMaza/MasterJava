@@ -1,23 +1,37 @@
 package org.egmaza.cdi.headers.repositories;
 
-import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import jakarta.inject.Inject;
-import jakarta.inject.Named;
 import org.egmaza.cdi.headers.configs.MysqlConn;
-import org.egmaza.cdi.headers.configs.Repositorio;
+import org.egmaza.cdi.headers.configs.Repository;
 import org.egmaza.cdi.headers.models.Categoria;
 import org.egmaza.cdi.headers.models.Producto;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
-@Repositorio
-public class ProductoRepositoryJdbcImpl implements Repository<Producto> {
+@Repository
+public class ProductoRepositoryJdbcImpl implements CrudRepository<Producto> {
+
+    @Inject
+    private Logger log;
 
     @Inject
     @MysqlConn
     private Connection conn;
+
+    @PostConstruct
+    public void inicializar(){
+        log.info("Inicializando el beans " + this.getClass().getName());
+    }
+
+    @PreDestroy
+    public void destruir(){
+        log.info("Destruyendo el beans " + this.getClass().getName());
+    }
 
     @Override
     public List<Producto> listar() throws SQLException {

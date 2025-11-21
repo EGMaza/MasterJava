@@ -1,17 +1,15 @@
 package org.egmaza.cdi.headers.repositories;
 
-import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import jakarta.inject.Named;
 import org.egmaza.cdi.headers.configs.MysqlConn;
-import org.egmaza.cdi.headers.configs.Repositorio;
+import org.egmaza.cdi.headers.configs.Repository;
 import org.egmaza.cdi.headers.models.Usuario;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repositorio
+@Repository
 public class UsuarioRepositoryImpl implements UsuarioRepository{
 
     @Inject

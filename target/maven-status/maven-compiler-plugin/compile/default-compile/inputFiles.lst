@@ -1,6 +1,6 @@
+C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\configs\ProductoServicePrincipal.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\services\LoginServiceSessionImpl.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\filters\ConexionFilter.java
-C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\repositories\Repository.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\services\LoginService.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\controllers\ProductoServlet.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\services\ProductoServiceImpl.java
@@ -10,8 +10,10 @@ C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-de
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\controllers\ActualizarCarroServlet.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\controllers\LoginServlet.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\models\Usuario.java
+C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\configs\MysqlConn.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\models\Producto.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\services\LoginServiceCookieImpl.java
+C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\configs\CarroCompra.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\controllers\ProductoEliminarServlet.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\repositories\CategoriaRepositoryImpl.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\repositories\ProductoRepositoryJdbcImpl.java
@@ -19,6 +21,7 @@ C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-de
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\services\UsuarioServiceJdbcImpl.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\controllers\UsuarioServlet.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\models\Categoria.java
+C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\repositories\CrudRepository.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\listeners\AplicacionListener.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\services\ProductoService.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\controllers\AgregarCarroServlet.java
@@ -27,6 +30,7 @@ C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-de
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\util\ConexionBaseDatosDS.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\models\Carro.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\controllers\VerCarroServlet.java
+C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\configs\Repository.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\util\ConexionBaseDatos.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\configs\ProducerResources.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\controllers\ProductoFormServlet.java

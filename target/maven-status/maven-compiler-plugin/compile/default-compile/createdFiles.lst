@@ -4,6 +4,7 @@ org\egmaza\cdi\headers\controllers\ProductoServlet.class
 org\egmaza\cdi\headers\services\LoginService.class
 org\egmaza\cdi\headers\repositories\UsuarioRepositoryImpl.class
 org\egmaza\cdi\headers\services\ProductoServiceImpl.class
+org\egmaza\cdi\headers\configs\Repository.class
 org\egmaza\cdi\headers\configs\ProductoServicePrincipal.class
 org\egmaza\cdi\headers\controllers\ProductoFormServlet.class
 org\egmaza\cdi\headers\configs\ProducerResources.class
@@ -17,9 +18,11 @@ org\egmaza\cdi\headers\services\ServiceJdbcException.class
 org\egmaza\cdi\headers\controllers\UsuarioServlet.class
 org\egmaza\cdi\headers\listeners\AplicacionListener.class
 org\egmaza\cdi\headers\services\UsuarioService.class
+org\egmaza\cdi\headers\configs\CarroCompra.class
 org\egmaza\cdi\headers\controllers\UsuarioFormServlet.class
 org\egmaza\cdi\headers\controllers\ActualizarCarroServlet.class
 org\egmaza\cdi\headers\models\Categoria.class
+org\egmaza\cdi\headers\repositories\CrudRepository.class
 org\egmaza\cdi\headers\controllers\AgregarCarroServlet.class
 org\egmaza\cdi\headers\services\ProductoServiceJdbcImpl.class
 org\egmaza\cdi\headers\models\ItemCarro.class
@@ -31,7 +34,6 @@ org\egmaza\cdi\headers\controllers\VerCarroServlet.class
 org\egmaza\cdi\headers\services\UsuarioServiceJdbcImpl.class
 org\egmaza\cdi\headers\services\LoginServiceSessionImpl.class
 org\egmaza\cdi\headers\models\Carro.class
-org\egmaza\cdi\headers\repositories\Repository.class
 org\egmaza\cdi\headers\repositories\UsuarioRepository.class
 org\egmaza\cdi\headers\configs\MysqlConn.class
 org\egmaza\cdi\headers\controllers\LogoutServlet.class

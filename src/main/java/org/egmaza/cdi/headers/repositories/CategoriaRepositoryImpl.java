@@ -2,15 +2,15 @@ package org.egmaza.cdi.headers.repositories;
 
 import jakarta.inject.Inject;
 import org.egmaza.cdi.headers.configs.MysqlConn;
-import org.egmaza.cdi.headers.configs.Repositorio;
+import org.egmaza.cdi.headers.configs.Repository;
 import org.egmaza.cdi.headers.models.Categoria;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repositorio
-public class CategoriaRepositoryImpl implements Repository<Categoria>{
+@Repository
+public class CategoriaRepositoryImpl implements CrudRepository<Categoria> {
 
     private Connection conn;
 
