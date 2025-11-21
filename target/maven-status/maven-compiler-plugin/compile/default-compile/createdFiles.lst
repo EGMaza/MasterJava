@@ -1,6 +1,8 @@
 org\egmaza\cdi\headers\repositories\CategoriaRepositoryImpl.class
 org\egmaza\cdi\headers\models\Usuario.class
 org\egmaza\cdi\headers\controllers\ProductoServlet.class
+org\egmaza\cdi\headers\configs\Service.class
+org\egmaza\cdi\headers\interceptors\LoggingInterceptor.class
 org\egmaza\cdi\headers\services\LoginService.class
 org\egmaza\cdi\headers\repositories\UsuarioRepositoryImpl.class
 org\egmaza\cdi\headers\services\ProductoServiceImpl.class
@@ -20,6 +22,7 @@ org\egmaza\cdi\headers\listeners\AplicacionListener.class
 org\egmaza\cdi\headers\services\UsuarioService.class
 org\egmaza\cdi\headers\configs\CarroCompra.class
 org\egmaza\cdi\headers\controllers\UsuarioFormServlet.class
+org\egmaza\cdi\headers\interceptors\Logging.class
 org\egmaza\cdi\headers\controllers\ActualizarCarroServlet.class
 org\egmaza\cdi\headers\models\Categoria.class
 org\egmaza\cdi\headers\repositories\CrudRepository.class

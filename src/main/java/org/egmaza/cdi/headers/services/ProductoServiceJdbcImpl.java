@@ -3,6 +3,8 @@ package org.egmaza.cdi.headers.services;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.egmaza.cdi.headers.configs.ProductoServicePrincipal;
+import org.egmaza.cdi.headers.configs.Service;
+import org.egmaza.cdi.headers.interceptors.Logging;
 import org.egmaza.cdi.headers.models.Categoria;
 import org.egmaza.cdi.headers.models.Producto;
 import org.egmaza.cdi.headers.repositories.CrudRepository;
@@ -11,7 +13,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
-@ApplicationScoped
+@Service
 @ProductoServicePrincipal
 public class ProductoServiceJdbcImpl implements ProductoService{
 

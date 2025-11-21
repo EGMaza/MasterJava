@@ -2,13 +2,14 @@ package org.egmaza.cdi.headers.services;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import org.egmaza.cdi.headers.configs.Service;
 import org.egmaza.cdi.headers.models.Usuario;
 import org.egmaza.cdi.headers.repositories.UsuarioRepository;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
-@ApplicationScoped
+@Service
 public class UsuarioServiceJdbcImpl implements UsuarioService{
 
     private UsuarioRepository usuarioRepository;

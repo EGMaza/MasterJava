@@ -21,13 +21,11 @@ public class Carro implements Serializable {
     @PostConstruct
     public void inicializar(){
         this.items = new ArrayList<>();
-        System.out.println("Inicializando el carro de compras! con sout");
         log.info("Inicializando el carro de compras!");
     }
 
     @PreDestroy
     public void destruir(){
-        System.out.println("Destruyendo el carro compras con sout");
         log.info("Destruyendo el carro compras");
     }
 

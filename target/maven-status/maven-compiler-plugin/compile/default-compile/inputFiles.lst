@@ -8,9 +8,11 @@ C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-de
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\controllers\UsuarioEliminarServlet.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\models\ItemCarro.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\controllers\ActualizarCarroServlet.java
+C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\interceptors\Logging.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\controllers\LoginServlet.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\models\Usuario.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\configs\MysqlConn.java
+C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\interceptors\LoggingInterceptor.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\models\Producto.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\services\LoginServiceCookieImpl.java
 C:\Users\egmaza\Documents\CursosUdemy\MasterCompletoJava\JavaEE\cdi-inyeccion-dependencias\src\main\java\org\egmaza\cdi\headers\configs\CarroCompra.java
