@@ -21,6 +21,10 @@ public class HibernatePorId {
         //query.setParameter(1, id);
         //Cliente c = (Cliente)query.getSingleResult();
         System.out.println(cliente);
+
+
+        Cliente cliente2 = em.find(Cliente.class, 2L);
+        System.out.println(cliente2);
         em.close();
     }
 }

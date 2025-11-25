@@ -6,7 +6,7 @@ import org.egmaza.hibernateapp.util.JpaUtil;
 
 import java.util.List;
 
-public class HibernetListar {
+public class HibernateListar {
 
     public static void main(String[] args) {
 

@@ -5,9 +5,10 @@ import jakarta.persistence.Query;
 import org.egmaza.hibernateapp.entity.Cliente;
 import org.egmaza.hibernateapp.util.JpaUtil;
 
+import java.util.List;
 import java.util.Scanner;
 
-public class HibernateListarWhere {
+public class HibernateResultListWhere {
 
     public static void main(String[] args) {
 
@@ -18,8 +19,8 @@ public class HibernateListarWhere {
         System.out.println("Ingrese una forma de pago");
         String pago = sc.next();
         query.setParameter(1, pago);
-        Cliente c = (Cliente)query.getSingleResult();
-        System.out.println(c);
+        List<Cliente> clientes = query.getResultList();
+        System.out.println(clientes);
         em.close();
     }
 }
