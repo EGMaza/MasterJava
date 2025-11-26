@@ -1,6 +1,7 @@
 package org.egmaza.hibernateapp;
 
 import jakarta.persistence.EntityManager;
+import org.egmaza.hibernateapp.dominio.ClienteDto;
 import org.egmaza.hibernateapp.entity.Cliente;
 import org.egmaza.hibernateapp.util.JpaUtil;
 
@@ -48,6 +49,29 @@ public class HibernateQLanguaje {
             apellido = (String)reg[2];
             System.out.println("id: " + id +", nombre: " + nombre + ", apellido: " + apellido);
         }
+
+        System.out.println("===== consulta por cliente y forma pago =====");
+        registros = em.createQuery("select c, c.formaPago from Cliente c", Object[].class)
+                        .getResultList();
+
+        registros.forEach(reg ->{
+            Cliente c = (Cliente)reg[0];
+            String formaPago = (String)reg[1];
+            System.out.println("formaPago = " + formaPago + ", el objeto completo: " + c);
+        });
+
+        System.out.println("===== consulta que puebla y devuelve un objeto entity de una clase personalizada =====");
+        clientes = em.createQuery("select new Cliente(c.nombre, c.apellido) from Cliente c", Cliente.class)
+                        .getResultList();
+
+        clientes.forEach(System.out::println);
+
+        System.out.println("===== consulta que puebla y devuelve otro objeto diferente de una clase personalizada =====");
+        List<ClienteDto> clientesDto = em.createQuery("select new org.egmaza.hibernateapp.dominio.ClienteDto(c.nombre, c.apellido) from Cliente c", ClienteDto.class)
+                .getResultList();
+
+        clientesDto.forEach(System.out::println);
+
         em.close();
     }
 }

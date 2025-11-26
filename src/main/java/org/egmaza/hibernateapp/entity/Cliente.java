@@ -23,6 +23,11 @@ public class Cliente {
         this.formaPago = formaPago;
     }
 
+    public Cliente(String nombre, String apellido) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+    }
+
     public Cliente() {
     }
 
