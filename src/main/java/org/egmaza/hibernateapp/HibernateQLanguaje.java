@@ -118,6 +118,18 @@ public class HibernateQLanguaje {
                 .getResultList();
         clientes.forEach(System.out::println);
 
+        System.out.println("===== consultas por rangos =====");
+        //clientes = em.createQuery("select c from Cliente c where c.id between 2 and 5", Cliente.class)
+        //                .getResultList();
+        clientes = em.createQuery("select c from Cliente c where c.nombre between 'J' and 'P'", Cliente.class)
+                .getResultList();
+        clientes.forEach(System.out::println);
+
+        System.out.println("===== consultas con orden =====");
+        clientes = em.createQuery("select c from Cliente c order by c.nombre desc, c.apellido asc", Cliente.class)
+                        .getResultList();
+        clientes.forEach(System.out::println);
+
 
         em.close();
     }
