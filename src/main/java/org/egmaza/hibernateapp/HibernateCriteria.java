@@ -1,10 +1,7 @@
 package org.egmaza.hibernateapp;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaQuery;
-import jakarta.persistence.criteria.ParameterExpression;
-import jakarta.persistence.criteria.Root;
+import jakarta.persistence.criteria.*;
 import org.egmaza.hibernateapp.entity.Cliente;
 import org.egmaza.hibernateapp.util.JpaUtil;
 
@@ -71,6 +68,16 @@ public class HibernateCriteria {
         query = criteria.createQuery(Cliente.class);
         from = query.from(Cliente.class);
         query.select(from).where(criteria.gt(criteria.length(from.get("nombre")), 5L));
+        clientes = em.createQuery(query).getResultList();
+        clientes.forEach(System.out::println);
+
+        System.out.println("===== consulta con los predicados de conjunción and y de disyunción or =====");
+        query = criteria.createQuery(Cliente.class);
+        from = query.from(Cliente.class);
+        Predicate porNombre = criteria.equal(from.get("nombre"), "Andres");
+        Predicate porFormaPago = criteria.equal(from.get("formaPago"), "debito");
+        Predicate pred3 = criteria.ge(from.get("id"), 4L);
+        query.select(from).where(criteria.and(pred3, criteria.or(porNombre, porFormaPago)));
         clientes = em.createQuery(query).getResultList();
         clientes.forEach(System.out::println);
 
