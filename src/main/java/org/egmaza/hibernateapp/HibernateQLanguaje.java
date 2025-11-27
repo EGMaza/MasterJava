@@ -5,6 +5,7 @@ import org.egmaza.hibernateapp.dominio.ClienteDto;
 import org.egmaza.hibernateapp.entity.Cliente;
 import org.egmaza.hibernateapp.util.JpaUtil;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class HibernateQLanguaje {
@@ -176,6 +177,27 @@ public class HibernateQLanguaje {
         System.out.println("min = " + min + ", max = " + max + ", sum = " +
                 sum + ", count = " + count + ", avg = " + avg);
 
+        System.out.println("===== consulta con nombre mas corto y su largo =====");
+        registros = em.createQuery("select c.nombre, length(c.nombre) from Cliente c where" +
+                        " length(c.nombre) = (select min(length(c.nombre)) from Cliente c)", Object[].class)
+                        .getResultList();
+
+        registros.forEach( reg ->{
+            String nom = (String) reg[0];
+            Integer largo = (Integer)reg[1];
+            System.out.println("nombre = " + nom + ", largo = " + largo);
+        });
+
+        System.out.println("===== consulta para obtener el último registro =====");
+        Cliente ultimoCliente = em.createQuery("select c from Cliente c where c.id = (select max(c.id) from Cliente c)", Cliente.class)
+                        .getSingleResult();
+        System.out.println("ultimoCliente = " + ultimoCliente);
+
+        System.out.println("===== consulta where in =====");
+        clientes = em.createQuery("select c from Cliente c where c.id in :ids", Cliente.class)
+                .setParameter("ids", Arrays.asList(1L, 2L, 10L, 14L))
+                .getResultList();
+        clientes.forEach(System.out::println);
 
         em.close();
     }
