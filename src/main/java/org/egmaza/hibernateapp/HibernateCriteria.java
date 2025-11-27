@@ -8,6 +8,7 @@ import jakarta.persistence.criteria.Root;
 import org.egmaza.hibernateapp.entity.Cliente;
 import org.egmaza.hibernateapp.util.JpaUtil;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class HibernateCriteria {
@@ -51,6 +52,27 @@ public class HibernateCriteria {
         clientes = em.createQuery(query).getResultList();
         clientes.forEach(System.out::println);
 
+        System.out.println("===== consulta where in =====");
+        query = criteria.createQuery(Cliente.class);
+        from = query.from(Cliente.class);
+        ParameterExpression<List> listParam = criteria.parameter(List.class, "nombres");
+        query.select(from).where(from.get("nombre").in(listParam));
+        clientes = em.createQuery(query).setParameter("nombres", Arrays.asList("andres", "jonh", "Lou"))
+                .getResultList();
+        clientes.forEach(System.out::println);
+
+        System.out.println("===== filtrar usando predicados mayor que o mayor igual que =====");
+        query = criteria.createQuery(Cliente.class);
+        from = query.from(Cliente.class);
+        query.select(from).where(criteria.ge(from.get("id"), 2L));
+        clientes = em.createQuery(query).getResultList();
+        clientes.forEach(System.out::println);
+
+        query = criteria.createQuery(Cliente.class);
+        from = query.from(Cliente.class);
+        query.select(from).where(criteria.gt(criteria.length(from.get("nombre")), 5L));
+        clientes = em.createQuery(query).getResultList();
+        clientes.forEach(System.out::println);
 
         em.close();
     }
