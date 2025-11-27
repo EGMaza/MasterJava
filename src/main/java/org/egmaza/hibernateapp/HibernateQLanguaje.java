@@ -130,6 +130,52 @@ public class HibernateQLanguaje {
                         .getResultList();
         clientes.forEach(System.out::println);
 
+        System.out.println("===== consulta con total de registros =====");
+        Long total = em.createQuery("select count(c) as total from Cliente c", Long.class)
+                        .getSingleResult();
+        System.out.println("Total: " + total);
+
+        System.out.println("===== consulta con valor mínimo de id =====");
+        Long minId = em.createQuery("select min(c.id) as minimo from Cliente c", Long.class)
+                        .getSingleResult();
+        System.out.println("minId:" + minId);
+
+        System.out.println("===== consulta con valor máximo/último id =====");
+        Long maxId = em.createQuery("select max(c.id) as máximo from Cliente c", Long.class)
+                .getSingleResult();
+        System.out.println("maxId:" + maxId);
+
+        System.out.println("===== consulta con nombre y su largo =====");
+        List<Object[]> registros2 = em.createQuery("select c.nombre, length(c.nombre) from Cliente c", Object[].class)
+                        .getResultList();
+        registros2.forEach(reg ->{
+            String nom = (String) reg[0];
+            Integer largo = (Integer)reg[1];
+            System.out.println("nombre = " + nom + ", largo = " + largo);
+        });
+
+        System.out.println("===== consulta con el nombre mas corto =====");
+        Integer minLargoNombre = em.createQuery("select min(length(c.nombre)) from Cliente c", Integer.class)
+                        .getSingleResult();
+        System.out.println("minLargoNombre: " + minLargoNombre);
+
+        System.out.println("===== consulta con el nombre mas largo =====");
+        Integer maxLargoNombre = em.createQuery("select max(length(c.nombre)) from Cliente c", Integer.class)
+                .getSingleResult();
+        System.out.println("maxLargoNombre: " + maxLargoNombre);
+
+        System.out.println("===== consultas resumen funciones agregaciones count min max avg sum =====");
+        Object[] estadisticas = em.createQuery("select min(c.id), max(c.id), sum(c.id), count(c.id), avg(length(c.nombre)) from Cliente c", Object[].class)
+                        .getSingleResult();
+
+        Long min = (Long) estadisticas[0];
+        Long max = (Long) estadisticas[1];
+        Long sum = (Long) estadisticas[2];
+        Long count = (Long) estadisticas[3];
+        Double avg = (Double) estadisticas[4];
+        System.out.println("min = " + min + ", max = " + max + ", sum = " +
+                sum + ", count = " + count + ", avg = " + avg);
+
 
         em.close();
     }
