@@ -72,6 +72,26 @@ public class HibernateQLanguaje {
 
         clientesDto.forEach(System.out::println);
 
+        System.out.println("===== consulta con nombre de clientes =====");
+        List<String> nombres = em.createQuery("select c.nombre from Cliente c", String.class)
+                        .getResultList();
+        nombres.forEach(System.out::println);
+
+        System.out.println("===== consulta con nombre únicos de clientes =====");
+        nombres = em.createQuery("select distinct(c.nombre) from Cliente c", String.class)
+                        .getResultList();
+        nombres.forEach(System.out::println);
+
+        System.out.println("===== consulta con formas de pago únicas =====");
+        List<String> formasPago = em.createQuery("select distinct(c.formaPago) from Cliente c", String.class)
+                        .getResultList();
+        formasPago.forEach(System.out::println);
+
+        System.out.println("===== consulta con numero de formas de pago únicas =====");
+        Long totalFormasPago = em.createQuery("select count(distinct(c.formaPago)) from Cliente c", Long.class)
+                .getSingleResult();
+        System.out.println("Total de formas de pago diferentes: " + totalFormasPago);
+
         em.close();
     }
 }
