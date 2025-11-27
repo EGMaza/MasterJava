@@ -92,6 +92,33 @@ public class HibernateQLanguaje {
                 .getSingleResult();
         System.out.println("Total de formas de pago diferentes: " + totalFormasPago);
 
+        System.out.println("===== consulta con nombre y apellido concatenados =====");
+        //nombres = em.createQuery("select concat(c.nombre, ' ', c.apellido) as nombreCompleto from Cliente c", String.class)
+        //                .getResultList();
+
+        nombres = em.createQuery("select c.nombre || ' ' || c.apellido as nombreCompleto from Cliente c", String.class)
+                .getResultList();
+        nombres.forEach(System.out::println);
+
+        System.out.println("===== consulta con nombre y apellido concatenados en mayuscula =====");
+        nombres = em.createQuery("select upper(c.nombre || ' ' || c.apellido) as nombreCompleto from Cliente c", String.class)
+                .getResultList();
+        nombres.forEach(System.out::println);
+
+        System.out.println("===== consulta con nombre y apellido concatenados en minuscula =====");
+        nombres = em.createQuery("select lower(c.nombre || ' ' || c.apellido) as nombreCompleto from Cliente c", String.class)
+                .getResultList();
+        nombres.forEach(System.out::println);
+
+        System.out.println("===== consulta para buscar por nombre =====");
+        String param = "lu";
+        param = param.toUpperCase();
+        clientes = em.createQuery("select c from Cliente c where upper(c.nombre) like upper(:parametro)", Cliente.class)
+                .setParameter("parametro", "%" + param + "%")
+                .getResultList();
+        clientes.forEach(System.out::println);
+
+
         em.close();
     }
 }
