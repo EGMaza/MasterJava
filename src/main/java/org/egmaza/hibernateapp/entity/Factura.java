@@ -61,7 +61,6 @@ public class Factura {
         return "{ id=" + id +
                 ", descripcion='" + descripcion + '\'' +
                 ", total=" + total +
-                ", cliente=" + cliente +
                 " }";
     }
 }
