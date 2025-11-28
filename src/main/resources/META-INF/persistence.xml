@@ -6,6 +6,7 @@
         <class>org.egmaza.hibernateapp.entity.Cliente</class>
         <class>org.egmaza.hibernateapp.entity.Factura</class>
         <class>org.egmaza.hibernateapp.entity.Direccion</class>
+        <class>org.egmaza.hibernateapp.entity.ClienteDetalle</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/java_hibernate_curso?serverTimezone=America/Mexico_City"/>
