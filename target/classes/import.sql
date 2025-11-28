@@ -1,1 +1,5 @@
 INSERT INTO clientes (id, nombre, apellido, forma_pago, creado_en, editado_en) VALUES (1,'Andres','Guzman','debito',NULL,NULL),(2,'Jonh','Doe','credito',NULL,NULL),(4,'Pepa','Doe','debito',NULL,NULL),(5,'Lucy','Dos','credito',NULL,NULL),(6,'Luna','García','debito',NULL,NULL),(9,'Jonh','Roe','paypal',NULL,NULL),(10,'Lou','Loeza','paypal',NULL,NULL),(11,'Lalo','Mena','webpay','2025-11-27 19:00:45','2025-11-27 19:02:07'),(12,'Pia','Perez','paypal plus','2025-11-27 19:11:41','2025-11-27 19:12:18');
+INSERT INTO alumnos (id, nombre, apellido) VALUES(1, 'Johana', 'Doe');
+INSERT INTO alumnos (id, nombre, apellido) VALUES(2, 'Pepe', 'Gon');
+INSERT INTO cursos (id, titulo, profesor) VALUES(1, 'Curso Spring', 'Andres');
+INSERT INTO cursos (id, titulo, profesor) VALUES(2, 'Curso Java EE 9', 'Andres');
