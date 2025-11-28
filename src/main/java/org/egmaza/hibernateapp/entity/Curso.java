@@ -2,6 +2,10 @@ package org.egmaza.hibernateapp.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 @Entity
 @Table(name="cursos")
 public class Curso {
@@ -13,12 +17,17 @@ public class Curso {
     private String titulo;
     private String profesor;
 
+    @ManyToMany(mappedBy = "cursos")
+    private List<Alumno> alumnos;
+
     public Curso(String titulo, String profesor) {
+        this();
         this.titulo = titulo;
         this.profesor = profesor;
     }
 
     public Curso() {
+        this.alumnos=new ArrayList<>();
     }
 
     public Long getId() {
@@ -45,6 +54,14 @@ public class Curso {
         this.profesor = profesor;
     }
 
+    public List<Alumno> getAlumnos() {
+        return alumnos;
+    }
+
+    public void setAlumnos(List<Alumno> alumnos) {
+        this.alumnos = alumnos;
+    }
+
     @Override
     public String toString() {
         return "{" +
@@ -52,5 +69,17 @@ public class Curso {
                 ", titulo='" + titulo + '\'' +
                 ", profesor='" + profesor + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Curso curso = (Curso) o;
+        return Objects.equals(id, curso.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 }
