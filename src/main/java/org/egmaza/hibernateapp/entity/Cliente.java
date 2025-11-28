@@ -3,6 +3,8 @@ package org.egmaza.hibernateapp.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="clientes")
@@ -21,7 +23,15 @@ public class Cliente {
     @Embedded
     private Auditoria audit = new Auditoria();
 
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    //@JoinColumn(name = "id_cliente")
+    @JoinTable(name = "tbl_clientes_direcciones", joinColumns = @JoinColumn(name = "id_cliente"),
+            inverseJoinColumns = @JoinColumn(name = "id_direccion"),
+            uniqueConstraints = @UniqueConstraint(columnNames = {"id_direccion"}))
+    private List<Direccion> direcciones;
+
     public Cliente(Long id, String nombre, String apellido, String formaPago) {
+        this();
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -29,11 +39,13 @@ public class Cliente {
     }
 
     public Cliente(String nombre, String apellido) {
+        this();
         this.nombre = nombre;
         this.apellido = apellido;
     }
 
     public Cliente() {
+        direcciones  = new ArrayList<>();
     }
 
 
@@ -69,15 +81,24 @@ public class Cliente {
         this.formaPago = formaPago;
     }
 
+    public List<Direccion> getDirecciones() {
+        return direcciones;
+    }
+
+    public void setDirecciones(List<Direccion> direcciones) {
+        this.direcciones = direcciones;
+    }
+
     @Override
     public String toString() {
         LocalDateTime creado = this.audit != null ? audit.getCreadoEn() : null;
         LocalDateTime editado = this.audit != null ? audit.getEditadoEn() : null;
-        return "id=" + id +
+        return "{ id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", formaPago='" + formaPago + '\'' +
                 ", creadoEn='" + creado + '\'' +
-                ", editadoEn='" + editado + '\'';
+                ", editadoEn='" + editado +
+                ", direcciones='" + direcciones + "'}";
     }
 }
