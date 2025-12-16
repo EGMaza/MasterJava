@@ -7,7 +7,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.egmaza.webapp.ejb.models.Producto;
 import org.egmaza.webapp.ejb.service.ServiceEjb;
+import org.egmaza.webapp.ejb.service.ServiceEjbLocal;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -17,27 +19,33 @@ import java.io.IOException;
 public class EjemploServlet extends HttpServlet {
 
     //@Inject
-    //private ServiceEjb service;
+    //private ServiceEjbLocal service;
 
     //@Inject
-    //private ServiceEjb service2;
+    //private ServiceEjbLocal service2;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        ServiceEjb service = null;
-        ServiceEjb service2 = null;
+        ServiceEjbLocal service = null;
+        ServiceEjbLocal service2 = null;
         try {
             InitialContext ctx = new InitialContext();
-            service = (ServiceEjb)ctx.lookup("java:global/webapp-ejb/ServiceEjb!org.egmaza.webapp.ejb.service.ServiceEjb");
-            service2 = (ServiceEjb)ctx.lookup("java:global/webapp-ejb/ServiceEjb!org.egmaza.webapp.ejb.service.ServiceEjb");
+            service = (ServiceEjbLocal) ctx.lookup("java:global/webapp-ejb/ServiceEjb!org.egmaza.webapp.ejb.service.ServiceEjbLocal");
+            service2 = (ServiceEjbLocal) ctx.lookup("java:global/webapp-ejb/ServiceEjb!org.egmaza.webapp.ejb.service.ServiceEjbLocal");
         } catch (NamingException e) {
             throw new RuntimeException(e);
         }
 
         System.out.println("Service si es igual a service2 = " + service.equals(service2));
+
+        Producto p = service.crear(new Producto("uvas"));
+        System.out.println("Nuevo producto: " + p);
+
+
         req.setAttribute("saludo", service.saludar("Andrés"));
-        req.setAttribute("saludo2", service2.saludar("John"));
+        req.setAttribute("saludo2", service2.saludar("Johny"));
+        req.setAttribute("listado", service.listar());
         getServletContext().getRequestDispatcher("/index.jsp").forward(req, resp);
     }
 }
