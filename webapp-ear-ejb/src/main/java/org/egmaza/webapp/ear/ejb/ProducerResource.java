@@ -13,7 +13,7 @@ public class ProducerResource {
     private EntityManagerFactory emf;
 
     private EntityManager beanEntityManager(){
-        return emf.createEntityManager()
+        return emf.createEntityManager();
     }
 
     public void close(@Disposes EntityManager entityManager){
