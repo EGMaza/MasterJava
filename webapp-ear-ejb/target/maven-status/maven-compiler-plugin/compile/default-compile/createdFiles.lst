@@ -1,0 +1,6 @@
+org\egmaza\webapp\ear\ejb\entities\Usuario.class
+org\egmaza\webapp\ear\ejb\ProducerResource.class
+org\egmaza\webapp\ear\ejb\repositories\UsuarioRepository.class
+org\egmaza\webapp\ear\ejb\repositories\UsuarioRepositoryImpl.class
+org\egmaza\webapp\ear\ejb\services\UsuarioServiceImpl.class
+org\egmaza\webapp\ear\ejb\services\UsuarioService.class

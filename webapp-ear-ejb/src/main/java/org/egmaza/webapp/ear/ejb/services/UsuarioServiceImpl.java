@@ -14,7 +14,7 @@ public class UsuarioServiceImpl implements UsuarioService{
     private UsuarioRepository repository;
 
     @Override
-    public List<Usuario> Listar() {
+    public List<Usuario> listar() {
         return repository.listar();
     }
 }

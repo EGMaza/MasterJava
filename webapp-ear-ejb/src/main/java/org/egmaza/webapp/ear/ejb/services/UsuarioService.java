@@ -6,5 +6,5 @@ import java.util.List;
 
 @Local
 public interface UsuarioService {
-    List<Usuario> Listar();
+    List<Usuario> listar();
 }
